@@ -1,18 +1,19 @@
 <div class="container">
-  <div class ="cards">
+  <div class="cards">
     <% @categories.each do |category| %>
-      <li><%= category.name %></li>
-        <div class ="card">
+      <h1 class=><%= category.name %></h1>
+        <div class="card-category">
           <% category.hobbies.each do |hobby| %>
+            <div class="card-image">
+              <img src="logo-white.png" alt="">
+            </div>
             <div class="card-name">
               <%= hobby.name %>
             </div>
             <div class="card-description">
               <%= hobby.description %>
             </div>
-            <div class="card-image">
-              <img src="logo-white.png" alt="">
-            </div>
+            <a class="btn btn-add-hobby" href="#">Add hobby</a>
           <% end %>
         </div>
     <% end %>
