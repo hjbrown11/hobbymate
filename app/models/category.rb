@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-  has_many :hobby, through: :category_hobby
+  has_many :category_hobbies
+  has_many :hobbies, through: :category_hobbies
 
   validates :name, presence: true
 end

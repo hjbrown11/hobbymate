@@ -1,6 +1,11 @@
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= category.name %></li>
-      <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+        <% @hobbies.each do |hobby| %>
+          <li><%= hobby.name %></li>
+          <li><%= hobby.description %></li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
