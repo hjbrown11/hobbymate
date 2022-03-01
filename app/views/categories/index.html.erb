@@ -1,9 +1,6 @@
 <ul>
   <% @categories.each do |category_hobbies| %>
     <li><%= category_hobbies.name %></li>
-      <% @category_hobbies.each do |hobbies| %>
-        <li><%= hobbies.name %></li>
-        <li><%= hobbies.description %></li>
       <% end %>
   <% end %>
 </ul>
