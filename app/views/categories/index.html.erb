@@ -1,6 +1,20 @@
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= category.name %></li>
-      <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <div class ="cards">
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+        <div class ="card">
+          <% category.hobbies.each do |hobby| %>
+            <div class="card-name">
+              <%= hobby.name %>
+            </div>
+            <div class="card-description">
+              <%= hobby.description %>
+            </div>
+            <div class="card-image">
+              <img src="logo-white.png" alt="">
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 class Hobby < ApplicationRecord
   has_one_attached :photo
-  belongs_to :category, through: :category_hobby
+
+  has_many :category_hobbies
+  has_many :categories, through: :category_hobbies
+
+
   validates :name, presence: true
   validates :description, presence: true
 end
