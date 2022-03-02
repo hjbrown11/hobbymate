@@ -130,36 +130,62 @@ hobby = Hobby.create(name: "Tango", description: "Tango is a dance form that inv
 hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)
 
-# USER SEEDS
-user_one = User.create(email: "user_one@gmail.com", password: "123456", first_name: "User", last_name: "One", age: 25, bio: "I love basketball")
-user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: "User", last_name: "Two", age: 25, bio: "I really love basketball")
+# HOBBY SAMPLES - SO WE CAN ASSIGN DIFFERENT USER THE SAME HOBBY
 
-# USER HOBBY SEEDS
-UserHobby.create!(user_id: user_one.id, hobby_id: Hobby.first.id)
-UserHobby.create!(user_id: user_two.id, hobby_id: Hobby.first.id)
+hobby_sample_one = Hobby.all.sample
+hobby_sample_two = Hobby.all.sample
+hobby_sample_three = Hobby.all.sample
+hobby_sample_four = Hobby.all.sample
+hobby_sample_five = Hobby.all.sample
+hobby_sample_six = Hobby.all.sample
+hobby_sample_seven = Hobby.all.sample
+hobby_sample_eight = Hobby.all.sample
+
+# USER SEEDS FOR MATCHED USERS - THESE ONES WILL BE MATCHED BELOW
+user_one = User.create(email: "user_one@gmail.com", password: "123456", first_name: "User", last_name: "One", age: 25, bio: "I love hobbies")
+user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: "User", last_name: "Two", age: 25, bio: "I love hobbies")
+
+user_three = User.create(email: "user_three@gmail.com", password: "123456", first_name: "User", last_name: "Three", age: 25, bio: "I love hobbies")
+user_four = User.create(email: "user_four@gmail.com", password: "123456", first_name: "User", last_name: "Four", age: 25, bio: "I love hobbies")
 
 # MATCHES SEEDS
 Match.create!(matched: true, sender: user_one, receiver: user_two)
+Match.create!(matched: true, sender: user_three, receiver: user_four)
+
+# USER SEEDS FOR UNMATCHED USERS - THESE ARE TO TEST THE MATCHING FUNCTIONALITY
+user_five = User.create(email: "user_five@gmail.com", password: "123456", first_name: "User", last_name: "Five", age: 25, bio: "I love hobbies")
+user_six = User.create(email: "user_six@gmail.com", password: "123456", first_name: "User", last_name: "Six", age: 25, bio: "I love hobbies")
+
+user_seven = User.create(email: "user_seven@gmail.com", password: "123456", first_name: "User", last_name: "Seven", age: 25, bio: "I love hobbies")
+user_eight = User.create(email: "user_eight@gmail.com", password: "123456", first_name: "User", last_name: "Eight", age: 25, bio: "I love hobbies")
+
+user_nine = User.create(email: "user_nine@gmail.com", password: "123456", first_name: "User", last_name: "Nine", age: 25, bio: "I love hobbies")
+user_ten = User.create(email: "user_ten@gmail.com", password: "123456", first_name: "User", last_name: "Ten", age: 25, bio: "I love hobbies")
+
+
+# USER HOBBY SEEDS - THIS WILL ASSIGN HOBBIES TO BOTH MATCHED AND UNMATCHED USERS, SO THEY SHOW UP IN EACH OTHER'S SUGGESTIONS
+UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_one.id)
+UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_one.id)
+
+UserHobby.create!(user_id: user_three.id, hobby_id: hobby_sample_two.id)
+UserHobby.create!(user_id: user_four.id, hobby_id: hobby_sample_two.id)
+
+UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_three.id)
+UserHobby.create!(user_id: user_six.id, hobby_id: hobby_sample_three.id)
+
+UserHobby.create!(user_id: user_seven.id, hobby_id: hobby_sample_four.id)
+UserHobby.create!(user_id: user_eight.id, hobby_id: hobby_sample_four.id)
+
+UserHobby.create!(user_id: user_nine.id, hobby_id: hobby_sample_five.id)
+UserHobby.create!(user_id: user_ten.id, hobby_id: hobby_sample_five.id)
+
+UserHobby.create!(user_id: user_nine.id, hobby_id: hobby_sample_six.id)
+UserHobby.create!(user_id: user_ten.id, hobby_id: hobby_sample_six.id)
+
+UserHobby.create!(user_id: user_nine.id, hobby_id: hobby_sample_seven.id)
+UserHobby.create!(user_id: user_ten.id, hobby_id: hobby_sample_seven.id)
+
+UserHobby.create!(user_id: user_nine.id, hobby_id: hobby_sample_eight.id)
+UserHobby.create!(user_id: user_ten.id, hobby_id: hobby_sample_eight.id)
 
 puts "seeding completed"
-
-  #user info
-  # t.string "email", default: "", null: false
-  # t.string "first_name"
-  # t.string "last_name"
-  # t.integer "age"
-  # t.string "address"
-  # t.text "bio"
-
-  #user_hobby
-  # t.bigint "user_id", null: false
-  # t.bigint "hobby_id", null: false
-
-  #matches
-  # t.boolean "matched"
-  # t.bigint "sender_id", null: false
-  # t.bigint "receiver_id", null: false
-
-  # user seeds not working? Not sure why
-
-  # store a sample of the hobby in avariable and give that to multiple users
