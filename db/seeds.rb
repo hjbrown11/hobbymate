@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 puts 'Cleaning database'
+UserHobby.destroy_all
+Match.destroy_all
+User.destroy_all
 CategoryHobby.destroy_all
 Category.destroy_all
 Hobby.destroy_all
@@ -127,4 +130,36 @@ hobby = Hobby.create(name: "Tango", description: "Tango is a dance form that inv
 hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)
 
+# USER SEEDS
+user_one = User.create(email: "user_one@gmail.com", password: "123456", first_name: "User", last_name: "One", age: 25, bio: "I love basketball")
+user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: "User", last_name: "Two", age: 25, bio: "I really love basketball")
+
+# USER HOBBY SEEDS
+UserHobby.create!(user_id: user_one.id, hobby_id: Hobby.first.id)
+UserHobby.create!(user_id: user_two.id, hobby_id: Hobby.first.id)
+
+# MATCHES SEEDS
+Match.create!(matched: true, sender: user_one, receiver: user_two)
+
 puts "seeding completed"
+
+  #user info
+  # t.string "email", default: "", null: false
+  # t.string "first_name"
+  # t.string "last_name"
+  # t.integer "age"
+  # t.string "address"
+  # t.text "bio"
+
+  #user_hobby
+  # t.bigint "user_id", null: false
+  # t.bigint "hobby_id", null: false
+
+  #matches
+  # t.boolean "matched"
+  # t.bigint "sender_id", null: false
+  # t.bigint "receiver_id", null: false
+
+  # user seeds not working? Not sure why
+
+  # store a sample of the hobby in avariable and give that to multiple users
