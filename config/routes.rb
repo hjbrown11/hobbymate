@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  resources :users, only: [:show, :destroy, :edit, :update]
   resources :categories, only: [:index, :show] do
     resources :hobbies, only: [:index, :show]
   end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :matches, only: [:index, :show, :destroy] do
+    resources :messages, only: [:create]
+  end
 end
