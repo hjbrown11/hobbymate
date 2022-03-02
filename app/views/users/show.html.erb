@@ -6,10 +6,10 @@
       <div class="col">
         <div class="user-card">
           <div class="card-image">
-            <%= cl_image_tag user.photo.key  %>
+            <%= cl_image_tag @user.photo.key  %>
           </div>
           <div class="card-name">
-            <%= user.name %>
+            <%= @user.first_name %>
           </div>
         </div>
       </div>
