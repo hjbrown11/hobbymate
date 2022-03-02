@@ -1,21 +1,29 @@
 <div class="container">
-  <div class="cards">
-    <% @categories.each do |category| %>
-      <h1 class=><%= category.name %></h1>
-        <div class="card-category">
-          <% category.hobbies.each do |hobby| %>
-            <div class="card-image">
-              <img src="logo-white.png" alt="">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <% @categories.each do |category| %>
+          <div class="cards-category">
+            <h1 class=><%= category.name %></h1>
+              <div class="category-hobbies">
+                <div class="row">
+                  <% category.hobbies.each do |hobby| %>
+                    <div class="col-6">
+                      <div class="hobby-card">
+                        <div class="card-image">
+                          <%= cl_image_tag hobby.photo.key  %>
+                        </div>
+                        <div class="card-name">
+                          <%= hobby.name %>
+                        </div>
+                        <a class="btn btn-add-hobby text-gradient" href="#">Add hobby</a>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <div class="card-name">
-              <%= hobby.name %>
-            </div>
-            <div class="card-description">
-              <%= hobby.description %>
-            </div>
-            <a class="btn btn-add-hobby" href="#">Add hobby</a>
-          <% end %>
-        </div>
-    <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
