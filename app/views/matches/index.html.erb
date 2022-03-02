@@ -1,0 +1,12 @@
+<h1>Your matches</h1>
+<% @matches.each do |match| %>
+  <% if match.sender_id == current_user.id %>
+  <%= link_to match_path(match) do %>
+    <p class="match-bubbles">Chat to <%= User.find(match.receiver_id).first_name %> <%= User.find(match.receiver_id).last_name %></p>
+  <% end %>
+  <% else %>
+  <%= link_to match_path(match) do %>
+    <p class="match-bubbles">Chat to <%= User.find(match.sender_id).first_name %> <%= User.find(match.sender_id).last_name %></p>
+    <% end %>
+  <% end %>
+<% end %>
