@@ -1,0 +1,14 @@
+<h2>Swipe to find your local hobbymate</h2>
+
+<div class="d-flex mt-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <div class="cards m-2">
+          <% @user.photos.each do |photo| %>
+          <div class="card-category" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
