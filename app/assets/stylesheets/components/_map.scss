@@ -1,0 +1,20 @@
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.mapboxgl-ctrl-geocoder--input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  background-color: #ffe7dc45;
+  border-radius: 10px;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search {
+  display: none;
+}
