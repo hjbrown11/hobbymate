@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only: [:index, :show, :destroy] do
-    resources :messages, only: [:create]
+    resources :messages, only: [:create, :index]
   end
 end
