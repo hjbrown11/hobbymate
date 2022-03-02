@@ -14,9 +14,10 @@
 //     });
 //     this.geocoder.addTo(this.element)
 
-//     this.geocoder.on("result", event => this.#setInputValue(event))
-//     this.geocoder.on("clear", () => this.#clearInputValue())
-//   }
+    this.geocoder.on("result", event => this.#setInputValue(event))
+    this.geocoder.on("clear", () => this.#clearInputValue())
+    this.geocoder.setPlaceholder("hpsfdojosdf")
+  }
 
 //   #setInputValue(event) {
 //     this.addressTarget.value = event.result["place_name"]
