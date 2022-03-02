@@ -3,13 +3,12 @@
 }
 
 .btn-add-hobby {
-  color: linear-gradient(to right, rgba(255, 149, 0, 0.6), rgba(255, 0, 2, 0.6));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-  padding: 8px 24px;
   border-radius: 5px;
   background: #ffffff;
   transition: background 0.3s ease;
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .btn-add-hobby:hover {
