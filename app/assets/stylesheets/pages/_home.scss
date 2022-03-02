@@ -2,8 +2,13 @@
   align-items: center;
 }
 
-.homepage-title, .homepage-tagline, .form-subtitle {
+.homepage-title, .homepage-tagline {
   color: white;
+}
+
+.form-subtitle {
+  color: white;
+  margin-top: 20%;
 }
 
 .homepage-title {
@@ -12,6 +17,7 @@
 
 .homepage-tagline {
   font-size: 2vmax;
+  margin-top: 20%;
 }
 
 #homepage-block {
