@@ -16,3 +16,18 @@
   background: #ffffff;
   color: rgb(151, 151, 151);
 }
+
+.devise-button {
+  border-radius: 5rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgba(255,0,0,0.4);
+  font-size: 1vmax;
+  padding: 0.2rem 3rem;
+  border: none;
+}
+
+.devise-button:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}

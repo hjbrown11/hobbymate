@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 puts 'Cleaning database'
+CategoryHobby.destroy_all
 Category.destroy_all
 Hobby.destroy_all
-CategoryHobby.destroy_all
 puts 'Adding database items'
 
 # CATEGORY TEAM SPORTS

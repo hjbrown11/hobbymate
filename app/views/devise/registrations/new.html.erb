@@ -1,7 +1,7 @@
 <div class = "container mt-4">
   <div class="row justify-content-center">
     <div class="col-9">
-      <h2>Sign up</h2>
+      <h2 class="form-inputs">Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -35,8 +35,11 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class: 'devise-button' %>
         </div>
       <% end %>
 <%= render "devise/shared/links" %>
+<br>
+</div>
+</div>
 </div>
