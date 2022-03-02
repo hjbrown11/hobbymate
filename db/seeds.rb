@@ -151,10 +151,10 @@ file = URI.open('https://images.unsplash.com/photo-1481214110143-ed630356e1bb?ix
 user_two.photo.attach(io: file, filename: user_two.last_name, content_type: 'image/jpeg')
 
 user_three = User.create(email: "user_three@gmail.com", password: "123456", first_name: "User", last_name: "Three", age: 25, bio: "I love hobbies")
-file = URI.open('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+file = URI.open('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 user_three.photo.attach(io: file, filename: user_three.last_name, content_type: 'image/jpeg')
 user_four = User.create(email: "user_four@gmail.com", password: "123456", first_name: "User", last_name: "Four", age: 25, bio: "I love hobbies")
-file = URI.open('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+file = URI.open('https://images.unsplash.com/photo-1610088441520-4352457e7095?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1lbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
 user_three.photo.attach(io: file, filename: user_four.last_name, content_type: 'image/jpeg')
 # MATCHES SEEDS
 Match.create!(matched: true, sender: user_one, receiver: user_two)
@@ -162,14 +162,25 @@ Match.create!(matched: true, sender: user_three, receiver: user_four)
 
 # USER SEEDS FOR UNMATCHED USERS - THESE ARE TO TEST THE MATCHING FUNCTIONALITY
 user_five = User.create(email: "user_five@gmail.com", password: "123456", first_name: "User", last_name: "Five", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+user_five.photo.attach(io: file, filename: user_five.last_name, content_type: 'image/jpeg')
 user_six = User.create(email: "user_six@gmail.com", password: "123456", first_name: "User", last_name: "Six", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1559893088-c0787ebfc084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fG1lbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
+user_six.photo.attach(io: file, filename: user_six.last_name, content_type: 'image/jpeg')
 
 user_seven = User.create(email: "user_seven@gmail.com", password: "123456", first_name: "User", last_name: "Seven", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1563630423918-b58f07336ac9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fG1lbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
+user_seven.photo.attach(io: file, filename: user_seven.last_name, content_type: 'image/jpeg')
 user_eight = User.create(email: "user_eight@gmail.com", password: "123456", first_name: "User", last_name: "Eight", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1595268108971-680d086f8cb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fG1lbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
+user_eight.photo.attach(io: file, filename: user_eight.last_name, content_type: 'image/jpeg')
 
 user_nine = User.create(email: "user_nine@gmail.com", password: "123456", first_name: "User", last_name: "Nine", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
+user_nine.photo.attach(io: file, filename: user_nine.last_name, content_type: 'image/jpeg')
 user_ten = User.create(email: "user_ten@gmail.com", password: "123456", first_name: "User", last_name: "Ten", age: 25, bio: "I love hobbies")
-
+file = URI.open('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHdvbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
+user_ten.photo.attach(io: file, filename: user_ten.last_name, content_type: 'image/jpeg')
 
 # USER HOBBY SEEDS - THIS WILL ASSIGN HOBBIES TO BOTH MATCHED AND UNMATCHED USERS, SO THEY SHOW UP IN EACH OTHER'S SUGGESTIONS
 UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_one.id)
