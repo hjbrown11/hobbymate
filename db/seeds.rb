@@ -142,12 +142,20 @@ hobby_sample_seven = Hobby.all.sample
 hobby_sample_eight = Hobby.all.sample
 
 # USER SEEDS FOR MATCHED USERS - THESE ONES WILL BE MATCHED BELOW
+
 user_one = User.create(email: "user_one@gmail.com", password: "123456", first_name: "User", last_name: "One", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+user_one.photo.attach(io: file, filename: user_one.last_name, content_type: 'image/jpeg')
 user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: "User", last_name: "Two", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1481214110143-ed630356e1bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+user_two.photo.attach(io: file, filename: user_two.last_name, content_type: 'image/jpeg')
 
 user_three = User.create(email: "user_three@gmail.com", password: "123456", first_name: "User", last_name: "Three", age: 25, bio: "I love hobbies")
+file = URI.open('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+user_three.photo.attach(io: file, filename: user_three.last_name, content_type: 'image/jpeg')
 user_four = User.create(email: "user_four@gmail.com", password: "123456", first_name: "User", last_name: "Four", age: 25, bio: "I love hobbies")
-
+file = URI.open('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+user_three.photo.attach(io: file, filename: user_four.last_name, content_type: 'image/jpeg')
 # MATCHES SEEDS
 Match.create!(matched: true, sender: user_one, receiver: user_two)
 Match.create!(matched: true, sender: user_three, receiver: user_four)
