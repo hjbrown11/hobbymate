@@ -15,9 +15,24 @@
               </div>
               <div class="m-2 mt-4" style="font-size: 16px"><p><%= @user.bio %></p></div>
               <div class="d-flex justify-content-between mt-5">
-                <% if @match.empty?%>
-                <h2><%= link_to 'Pass', user_path(@user), class: "btn btn-match-pass"%></h2>
-                <h2><%= link_to 'Match', new_match_path(@user), class: "btn btn-match"%></h2>
+                <% if @match.persisted?%>
+                  <%= simple_form_for [@user, @match] do  %>
+                    <%= f.input :match, value: "rejected", as: :hidden  %>
+                    <% f.submit "Pass", class: 'btn btn-match-pass' %>
+                  <% end %>
+                  <%= simple_form_for [@user, @match] do  %>
+                    <%= f.input :match, value: "accepted", as: :hidden  %>
+                    <% f.submit "Accept", class: 'btn btn-match' %>
+                  <% end %>
+                <% else %>
+                  <%= simple_form_for [@user, @match] do  %>
+                    <%= f.input :match, value: "rejected", as: :hidden  %>
+                    <% f.submit "Pass", class: 'btn btn-match-pass' %>
+                  <% end %>
+                  <%= simple_form_for [@user, @match] do  %>
+                    <%= f.input :match, value: "pending", as: :hidden  %>
+                    <% f.submit "Accept", class: 'btn btn-match' %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
