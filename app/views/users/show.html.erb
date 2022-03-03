@@ -1,32 +1,29 @@
-<h2>Swipe to find your local hobbymate</h2>
+<h2 class="m-4" style="color: white">Swipe to find your next hobbymate</h2>
 
-<div class="d-flex mt-4">
+<div class="d-flex mt-4 h-100">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center h-100">
       <div class="col">
         <div class="user-card">
-          <div class="card-image">
-            <%= cl_image_tag @user.photo.key  %>
-          </div>
-          <div class="card-name">
-            <%= @user.first_name %>
+          <div class="user-card-image" style="background-image: url(<%= cl_image_path(@user.photo.key) %>)"></div>
+            <div class="card-name">
+              <h2 class="m-2"><%= @user.first_name %>, <%= @user.age %></h2>
+              <div class="tags-hobby m-2 mt-4">
+                <% @user_hobby.each do |user_hobby| %>
+                  <div class="tag-hobby"><p> <%=user_hobby.hobby.name%></p></div>
+                <% end %>
+              </div>
+              <div class="m-2 mt-4" style="font-size: 16px"><p><%= @user.bio %></p></div>
+              <div class="d-flex justify-content-between mt-5">
+                <% if @match.empty?%>
+                <h2><%= link_to 'Pass', user_path(@user), class: "btn btn-match-pass"%></h2>
+                <h2><%= link_to 'Match', new_match_path(@user), class: "btn btn-match"%></h2>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <% @user.hobbies.each do |hobby| %>
-    <div class="col-6">
-      <div class="hobby-card">
-        <div class="card-image">
-          <%= cl_image_tag hobby.photo.key  %>
-        </div>
-        <div class="card-name">
-          <%= hobby.name %>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
