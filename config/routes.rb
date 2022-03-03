@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :user_hobbies, only: [:create, :new] do
+  resources :user_hobbies, only: [:create, :new, :destroy] do
     collection do
       post "create_many"
     end
