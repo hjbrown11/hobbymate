@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   resources :matches, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: [:create, :index]
   end
-  resources :user_hobbies, only: [:create, :new]
 end
