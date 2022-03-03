@@ -1,0 +1,37 @@
+
+<% @hobbies.each do |hobby| %>
+  <p><%= hobby.name %></p>
+<% end %>
+
+<h3>If you'd like to update your profile or add more hobbies, please make changes below:</h3>
+<%= @all_hobbies %>
+
+
+
+
+
+<div>
+  <div>
+    <h1><%= @user.first_name %>'s profile</h1>
+  </div>
+
+  <div>
+    <%= form_with url: user_profile_update_path, method: :PATCH do |f| %>
+    <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+      <%= f.text_field :address,
+                        data: { geocoder_target: "address" },
+                        :class => "searchbar-homepage"%>
+    </div>
+      <p>Select hobbies you're interested in</p>
+  </div>
+  <div>
+      <% @all_hobbies.each do |hobby| %>
+        <%= f.check_box "chobbies[#{hobby.id}]"%>
+        <%= f.label "hobbies[#{hobby.id}]", hobby.name %>
+      <% end %>
+  </div>
+  <div>
+      <%= f.submit 'Next' %>
+    <% end %>
+  </div>
+</div>
