@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2>Your hobbies</h2>
+        <div class="container">
+          <div class="hobby-card">
+            <div class="card-image" style="background-image: url(<%= cl_image_path hobby.photos[0].key %>)">
+            </div>
+            <div class = "card-name">
+              <div class="card-action">
+                  <% if policy(@hobby).destroy? %>
+                    <h2><%= link_to 'Destroy', hobby_path(@hobby), method: :delete, data: { confirm: 'Are you sure?' } %></h2>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

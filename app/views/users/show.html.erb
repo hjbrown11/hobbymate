@@ -15,3 +15,18 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container">
+  <% @user.hobbies.each do |hobby| %>
+    <div class="col-6">
+      <div class="hobby-card">
+        <div class="card-image">
+          <%= cl_image_tag hobby.photo.key  %>
+        </div>
+        <div class="card-name">
+          <%= hobby.name %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
