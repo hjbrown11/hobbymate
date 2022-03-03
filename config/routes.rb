@@ -14,10 +14,12 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :index]
   end
 
+
   resources :user_hobbies, only: [:create, :new] do
     collection do
       post "create_many"
     end
   end
+
 
 end
