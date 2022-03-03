@@ -1,0 +1,9 @@
+<div class="hobby-card">
+  <div class="card-image">
+    <%= cl_image_tag hobby.photo.key  %>
+  </div>
+  <div class="card-name">
+    <%= hobby.name %>
+  </div>
+  <a><%= link_to 'Add hobby', '#', class: "btn btn-add-hobby" %></a>
+</div>
