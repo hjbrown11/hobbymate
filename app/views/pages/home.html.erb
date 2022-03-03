@@ -1,10 +1,13 @@
 <div class="homepage-all">
   <div id="homepage-block">
+
+  <div>
     <h1 class="homepage-title">welcome to <br><strong>hobbymate</strong></h1>
     <p class="homepage-tagline">find new hobbies and people to do them with in your area</p>
   </div>
 
-  <div class="tag-item-inputs">
+  <div>
+  <div>
     <%= form_with url: categories_path, method: :GET do |f| %>
     <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
       <%= f.text_field :address,
@@ -13,14 +16,18 @@
     </div>
       <p class="form-subtitle">Select categories you're interested in</p>
   </div>
-  <div class="tag-item">
-      <% @categories.each do |category| %>
-        <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
-        <%= f.label "categories[#{category.id}]", category.name %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        <% @categories.each do |category| %>
+          <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
+          <%= f.label "categories[#{category.id}]", category.name %>
+        <% end %>
+    </div>
+    <div class="tag-item-inputs">
+        <%= f.submit 'Next', :class => "searchbar-submit" %>
       <% end %>
+    </div>
   </div>
-  <div class="tag-item-inputs">
-      <%= f.submit 'Next', :class => "searchbar-submit" %>
-    <% end %>
   </div>
 </div>

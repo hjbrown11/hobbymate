@@ -1,2 +1,3 @@
 class UserHobbiesController < ApplicationController
+
 end

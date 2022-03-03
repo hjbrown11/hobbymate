@@ -5,31 +5,22 @@
           <div class="cards-category">
             <h1 class=><%= category.name %></h1>
               <div class="category-hobbies">
-              <div class="carousel">
-                <div class="carouselbox">
-                  <div class="row">
-                    <% category.hobbies.each do |hobby| %>
-                      <div class="col-6">
-                        <div class="hobby-card">
-                          <div class="card-image">
-                            <%= cl_image_tag hobby.photo.key  %>
-                          </div>
-                          <div class="card-name">
-                            <%= hobby.name %>
-                          </div>
-                          <a><%= link_to 'Add hobby', '#', class: "btn btn-add-hobby" %></a>
+                <div id="category-carousel-<%= category.id %>" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <% category.hobbies.each_slice(2).with_index do |hobby_pair, index| %>
+                      <div class="carousel-item <%= "active" if index == 0  %>">
+                          <div class="row">
+                            <% hobby_pair.each do |hobby|  %>
+                              <div class="col-6">
+                                <%= render "hobby_card", hobby: hobby %>
+                              </div>
+                            <% end  %>
                         </div>
                       </div>
                     <% end %>
                   </div>
-
+                  <%= render "carousel_controls", category: category %>
                 </div>
-
-                <a class="switch-left"><</a>
-                <a class="switch-right">></a>
-              </div>
-
-
               </div>
             </div>
           </div>

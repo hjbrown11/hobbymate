@@ -6,11 +6,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :user_hobbies
+  has_many :hobbies, through: :user_hobbies
   has_many :sent_matches, foreign_key: "sender_id", class_name: "Match"
   has_many :received_matches, foreign_key: "receiver_id", class_name: "Match"
-
 
   def all_matches
     Match.where("sender_id = :id OR receiver_id = :id", id: self.id)
   end
+
 end
