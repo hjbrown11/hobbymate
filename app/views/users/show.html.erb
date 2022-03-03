@@ -1,20 +1,55 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-      <h2>Your hobbies</h2>
-        <div class="container">
-          <% @hobbies.each do |hobby| %>
-            <div class="hobby-card">
-              <div class="card-image">
-                <%= cl_image_tag hobby.photo.key %>
+      <h1 class="homepage-title"><%= @user.first_name %>'s profile</h1>
+        <h2>Your hobbies</h2>
+          <div class="container">
+            <% @hobbies.each do |hobby| %>
+              <div class="hobby-card">
+                <div class="card-image">
+                  <%= cl_image_tag hobby.photo.key %>
+                </div>
+                <div class="card-name">
+                  <%= hobby.name %>
+                </div>
+                <a><%= link_to 'Find hobbymate', match_user_path(current_user), class: "btn btn-add-hobby" %></a>
               </div>
-              <div class="card-name">
-                <%= hobby.name %>
-              </div>
-              <a><%= link_to 'Find hobbymate', match_user_path(current_user), class: "btn btn-add-hobby" %></a>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
     </div>
+  </div>
+</div>
+
+
+<div class="homepage-all">
+  <div id="homepage-block">
+
+    <div>
+      <h3 class="homepage-tagline">If you'd like to update your address or see hobbies in more categories, please make changes below:</h3>
+    </div>
+
+  <div>
+  <div>
+    <%= form_with url: categories_path, method: :GET do |f| %>
+    <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+      <%= f.text_field :address,
+                        data: { geocoder_target: "address" },
+                        :class => "searchbar-homepage d-none"%>
+    </div>
+      <p class="form-subtitle">Select categories you're interested in</p>
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        <% @categories.each do |category| %>
+          <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
+          <%= f.label "categories[#{category.id}]", category.name %>
+        <% end %>
+    </div>
+    <div class="tag-item-inputs">
+        <%= f.submit 'Next', :class => "searchbar-submit" %>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>
