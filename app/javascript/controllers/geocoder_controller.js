@@ -15,7 +15,7 @@ export default class extends Controller {
 
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-    this.geocoder.setPlaceholder("hpsfdojosdf")
+    this.geocoder.setPlaceholder("Enter your city")
   }
 
   #setInputValue(event) {

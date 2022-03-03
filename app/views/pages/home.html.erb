@@ -9,7 +9,7 @@
     <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
       <%= f.text_field :address,
                         data: { geocoder_target: "address" },
-                        :class => "searchbar-homepage"%>
+                        :class => "searchbar-homepage d-none"%>
     </div>
       <p class="form-subtitle">Select categories you're interested in</p>
   </div>
