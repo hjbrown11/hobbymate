@@ -1,0 +1,37 @@
+<div class="homepage-all">
+  <div id="homepage-block">
+
+    <div>
+      <h1 class="homepage-title"><%= @user.first_name %>'s profile</h1>
+      <p class="profile-subtitle">Your current hobbies:</p>
+      <% @hobbies_current.each do |hobby| %>
+        <p class="profile-subtitle"><%= hobby.name %></p>
+      <% end %>
+      <h3 class="homepage-tagline">If you'd like to update your profile or add more hobbies, please make changes below:</h3>
+    </div>
+
+      <div>
+        <div>
+        <%= form_with url: user_profile_update_path, method: :PATCH do |f| %>
+        <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+          <%= f.text_field :address,
+                            data: { geocoder_target: "address" },
+                            :class => "searchbar-homepage d-none"%>
+        </div>
+          <p class="profile-subtitle">Select hobbies you're interested in</p>
+      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <% @all_hobbies.each do |hobby| %>
+            <%= f.check_box "hobbies[#{hobby.id}]", :class => "tag-selector"%>
+            <%= f.label "hobbies[#{hobby.id}]", hobby.name %>
+          <% end %>
+      </div>
+      <div class="tag-item-inputs">
+          <%= f.submit 'Next', :class => "searchbar-submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
