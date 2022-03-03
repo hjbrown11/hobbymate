@@ -5,5 +5,5 @@
   <div class="card-name">
     <%= hobby.name %>
   </div>
-  <a><%= link_to 'Add hobby', '#', class: "btn btn-add-hobby" %></a>
+  <a><%= link_to 'Add hobby', user_path(current_user, hobby_id: hobby.id), class: "btn btn-add-hobby" %></a>
 </div>
