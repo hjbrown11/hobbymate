@@ -29,6 +29,13 @@ class UsersController < ApplicationController
   def match
     @user = User.find(params[:id])
     @user_hobby = UserHobby.where(user_id: params[:id])
-    @match = Match.where("sender_id = #{current_user.id} and receiver_id = #{params[:id]}")
+    @match = current_user.all_matches.find_by("sender_id = ? OR receiver_id = ?", @user.id, @user.id)
+    @match ||= Match.new
+  end
+  def next_match
+    @user = User.find(params[:id])
+    @user_hobby = UserHobby.where(user_id: params[:id])
+    @match = current_user.all_matches.find_by("sender_id = ? OR receiver_id = ?", @user.id)
+    @match ||= Match.new
   end
 end

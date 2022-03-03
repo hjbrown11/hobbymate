@@ -16,11 +16,19 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
+    @match.sender_id = current_user.id
+    @user = User.find(params[:id])
+    @match.receiver_id = @user.id
+    @match.save
+  end
+
+  def update
+    @match.update(match_params)
   end
 
   private
 
   def match_params
-    params.require(:match).permit(:sender_id, :receiver_id)
+    params.require(:match).permit(:sender_id, :receiver_id, :match)
   end
 end
