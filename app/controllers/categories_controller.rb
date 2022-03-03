@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @user_hobbies = UserHobby.new
     if params[:categories]
       ids = params[:categories].keys.select do |id|
         params[:categories][id] == "1"
