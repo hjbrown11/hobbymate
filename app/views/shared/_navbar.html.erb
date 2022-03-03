@@ -15,12 +15,14 @@
             <%= link_to "My profile", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "#", class: "nav-link message" do %>
+              <%= image_tag "message.png" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "profile-image.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item" %>
+              <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Matches", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

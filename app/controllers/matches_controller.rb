@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   end
 
   def show
+    @messages = Message.where("match_id = #{params[:id]}")
   end
 
   def destroy

@@ -5,21 +5,31 @@
           <div class="cards-category">
             <h1 class=><%= category.name %></h1>
               <div class="category-hobbies">
-                <div class="row">
-                  <% category.hobbies.each do |hobby| %>
-                    <div class="col-6">
-                      <div class="hobby-card">
-                        <div class="card-image">
-                          <%= cl_image_tag hobby.photo.key  %>
+              <div class="carousel">
+                <div class="carouselbox">
+                  <div class="row">
+                    <% category.hobbies.each do |hobby| %>
+                      <div class="col-6">
+                        <div class="hobby-card">
+                          <div class="card-image">
+                            <%= cl_image_tag hobby.photo.key  %>
+                          </div>
+                          <div class="card-name">
+                            <%= hobby.name %>
+                          </div>
+                          <a><%= link_to 'Add hobby', '#', class: "btn btn-add-hobby" %></a>
                         </div>
-                        <div class="card-name">
-                          <%= hobby.name %>
-                        </div>
-                        <a class="btn btn-add-hobby" href="#"><%= link_to 'Add hobby', _path(@) %></a>
                       </div>
-                    </div>
-                  <% end %>
+                    <% end %>
+                  </div>
+
                 </div>
+
+                <a class="switch-left"><</a>
+                <a class="switch-right">></a>
+              </div>
+
+
               </div>
             </div>
           </div>
