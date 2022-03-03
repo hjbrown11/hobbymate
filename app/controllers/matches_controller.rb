@@ -8,4 +8,18 @@ class MatchesController < ApplicationController
 
   def destroy
   end
+
+  def new
+    @match = Match.new
+  end
+
+  def create
+    @match = Match.new(match_params)
+  end
+
+  private
+
+  def match_params
+    params.require(:match).permit(:sender_id, :receiver_id)
+  end
 end

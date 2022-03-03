@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :hobbies, only: [:index, :show]
   end
 
-  resources :matches, only: [:index, :show, :destroy] do
+  resources :matches, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: [:create]
   end
 end
