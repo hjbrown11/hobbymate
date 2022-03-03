@@ -7,13 +7,13 @@ class UsersController < ApplicationController
 
   def user_profile
     @user = current_user
-    @hobbies = @user.hobbies
+    @hobbies_current = @user.hobbies
     @all_hobbies = Hobby.all
     if params[:hobbies]
       ids = params[:hobbies].keys.select do |id|
         params[:hobbies][id] == "1"
       end
-      @hobbies = Hobby.where(id: ids)
+      @hobbies_current = Hobby.where(id: ids)
     end
 
     if params[:address]
