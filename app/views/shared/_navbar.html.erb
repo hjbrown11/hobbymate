@@ -18,13 +18,20 @@
               <%= image_tag "message.png" %>
             <% end %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "profile-image.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Matches", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to user_path(current_user), class: "nav-link message" do %>
+              <%= image_tag "profile.png" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "#", class: "nav-link message" do %>
+              <%= image_tag "matches.png" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, class: "nav-link message" do %>
+              <%= image_tag "logout.png" %>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
