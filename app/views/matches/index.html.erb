@@ -1,4 +1,4 @@
-<h1>Your matches</h1>
+<h1 class="matches-index-title">Your matches</h1>
 <% @matches.each do |match| %>
   <% if match.sender_id == current_user.id %>
   <%= link_to match_path(match) do %>
