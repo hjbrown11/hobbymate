@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_action :set_match, only: [:destroy, :update, :show]
   def index
     @matches = Match.where("sender_id = #{current_user.id} OR receiver_id = #{current_user.id}")
   end
@@ -17,18 +18,33 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     @match.sender_id = current_user.id
-    @user = User.find(params[:id])
-    @match.receiver_id = @user.id
     @match.save
+    redirect_to new_match_path
   end
 
   def update
     @match.update(match_params)
+    redirect_to new_match_path
+  end
+
+  def new_match
+    @user = current_user.next_match_user.sample
+    if @user.nil?
+      redirect_to user_path(current_user)
+    else
+      @user_hobby = UserHobby.where(user_id: @user.id)
+      @match = current_user.all_matches.find_by("sender_id = ? OR receiver_id = ?", @user.id, @user.id)
+      @match ||= Match.new
+    end
   end
 
   private
 
   def match_params
-    params.require(:match).permit(:sender_id, :receiver_id, :match)
+    params.require(:match).permit(:receiver_id, :status)
+  end
+
+  def set_match
+    @match = Match.find(params[:id])
   end
 end
