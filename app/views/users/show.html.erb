@@ -29,7 +29,6 @@
       <h3 class="homepage-tagline">If you'd like to update your address or see hobbies in more categories, please make changes below:</h3>
     </div>
   <div>
-  <div>
     <%= form_with url: categories_path, method: :get do |f| %>
     <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
       <%= f.text_field :address,
