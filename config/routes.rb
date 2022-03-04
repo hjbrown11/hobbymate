@@ -3,17 +3,20 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [:index, :show, :destroy, :edit, :update]
-  get 'users/:id/match', to: 'users#match', as: 'match_user'
+
+
+  get 'new_match', to: 'matches#new_match', as: :new_match
+
 
   resources :categories, only: [:index, :show] do
     resources :hobbies, only: [:index, :show]
   end
-  resources :matches, only: [:new, :create, :index, :show, :destroy] do
+  resources :matches, except: :edit do
     resources :messages, only: [:create, :index]
   end
 
-  resources :user_hobbies, only: [:create, :new, :destroy] do
 
+  resources :user_hobbies, only: [:create, :new, :destroy] do
     collection do
       post "create_many"
     end

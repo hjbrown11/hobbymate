@@ -155,7 +155,7 @@ file = URI.open('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ix
 user_three.photo.attach(io: file, filename: user_three.last_name, content_type: 'image/jpeg')
 user_four = User.create(email: "user_four@gmail.com", password: "123456", first_name: "User", last_name: "Four", age: 25, bio: "I love hobbies")
 file = URI.open('https://images.unsplash.com/photo-1610088441520-4352457e7095?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1lbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
-user_three.photo.attach(io: file, filename: user_four.last_name, content_type: 'image/jpeg')
+user_four.photo.attach(io: file, filename: user_four.last_name, content_type: 'image/jpeg')
 # MATCHES SEEDS
 Match.create!(match: 0, sender: user_one, receiver: user_two)
 Match.create!(match: 0, sender: user_three, receiver: user_four)

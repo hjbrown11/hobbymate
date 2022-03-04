@@ -18,7 +18,7 @@
                 <div class="card-name">
                   <%= hobby.name %>
                 </div>
-                <a><%= link_to 'Find hobbymate', match_user_path(current_user), class: "btn btn-add-hobby" %></a>
+                <a><%= link_to 'Find hobbymate', new_match_path, class: "btn btn-add-hobby" %></a>
               </div>
             <% end %>
           </div>

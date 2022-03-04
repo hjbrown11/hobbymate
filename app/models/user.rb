@@ -15,4 +15,12 @@ class User < ApplicationRecord
     Match.where("sender_id = :id OR receiver_id = :id", id: self.id)
   end
 
+  def next_match_user
+    # Missing check if I already sent a match
+      User.joins(:user_hobbies).left_joins(:received_matches)
+        .where.not(id: self.id)
+        .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
+        .where("(matches.receiver_id = ? AND matches.status = 0) OR matches.id IS NULL", self.id)
+  end
+
 end
