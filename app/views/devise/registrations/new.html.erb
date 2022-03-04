@@ -21,6 +21,7 @@
           <%= f.input :bio,
                       autofocus: true,
                       input_html: { autocomplete: "bio" }%>
+          <%= f.input :photo, as: :file %>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -38,7 +39,6 @@
           <%= f.button :submit, "Sign up", class: 'devise-button' %>
         </div>
       <% end %>
-<%= render "devise/shared/links" %>
 <br>
 </div>
 </div>
