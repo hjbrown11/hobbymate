@@ -17,17 +17,19 @@
       <p class="form-subtitle">Select categories you're interested in</p>
   </div>
     <div class="container">
-      <div class="row">
-        <div class="col">
-        <% @categories.each do |category| %>
-          <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
-          <%= f.label "categories[#{category.id}]", category.name %>
+        <% @categories.each_slice(2) do |category_pair| %>
+          <div class="row shifted-row">
+            <% category_pair.each do |category| %>
+              <div class="col-6">
+                <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
+                <%= f.label "categories[#{category.id}]", category.name %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-    </div>
     <div class="tag-item-inputs">
         <%= f.submit 'Next', :class => "searchbar-submit" %>
       <% end %>
     </div>
-  </div>
   </div>
 </div>

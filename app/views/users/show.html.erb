@@ -6,12 +6,12 @@
         <h2>Your hobbies</h2>
           <div class="container">
             <% @hobbies.each do |hobby| %>
+              <div class="btn-delete">
+                <%= link_to user_hobby_path(hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" } do %>
+                  <%= image_tag "icon-delete.png" %>
+                <% end %>
+              </div>
               <div class="hobby-card">
-                <div class="btn-delete">
-                  <%= link_to user_hobby_path(hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" } do %>
-                    <%= image_tag "icon-delete.png" %>
-                  <% end %>
-                </div>
                 <div class="card-image">
                   <%= cl_image_tag hobby.photo.key %>
                 </div>
