@@ -9,7 +9,7 @@
               <% end%>
                 <h1><%= @user.first_name %> Profile Page</h1>
                 <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
-            <h2>Your hobbies</h2>
+            <h2 class="m-3">Your hobbies</h2>
             </div>
           </div>
         </div>
@@ -44,18 +44,17 @@
     </div>
       <p class="form-subtitle">Select categories you're interested in</p>
   </div>
-    <div class="container">
-      <div class="row">
-        <div class="col">
+
+      <div class= "d-flex flex-wrap align-items-center">
         <% @categories.each do |category| %>
           <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
           <%= f.label "categories[#{category.id}]", category.name %>
         <% end %>
-    </div>
+      </div>
+
     <div class="tag-item-inputs">
         <%= f.submit 'Next', :class => "searchbar-submit" %>
       <% end %>
     </div>
-  </div>
   </div>
 </div>
