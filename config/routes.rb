@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :destroy, :edit, :update]
   get 'users/:id/match', to: 'users#match', as: 'match_user'
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index] do
     resources :hobbies, only: [:index, :show]
   end
   resources :matches, only: [:new, :create, :index, :show, :destroy] do
