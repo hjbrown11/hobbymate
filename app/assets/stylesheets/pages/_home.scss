@@ -92,9 +92,12 @@
 }
 
 .shifted-row:nth-child(2n) {
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 10px;
+
 }
 
 .shifted-row:nth-child(2n + 1) {
-  margin-left: -10px;
+  margin-left: -25px;
+  margin-top: 10px;
 }
