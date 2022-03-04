@@ -1,14 +1,22 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:destroy, :edit, :update, :show, :match]
+
   def index
+  end
+
+  def edit
+  end
+
+  def update
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def show
     current_user.hobbies << Hobby.find(params[:hobby_id]) if params[:hobby_id].present? && !current_user.hobbies.include?(Hobby.find(params[:hobby_id]))
     @hobbies = current_user.hobbies
-
-    @user = User.find(params[:id])
+    @user_hobbies = UserHobby.where("user_id = #{current_user.id}")
     @categories = Category.all
-    @user_hobbies = UserHobby.new
     if params[:categories]
       ids = params[:categories].keys.select do |id|
         params[:categories][id] == "1"
@@ -32,12 +40,6 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user, hobby_id: hobby.id), notice: "Your hobby was removed"
   end
 
-  def match
-    @user = User.find(params[:id])
-    @user_hobby = UserHobby.where(user_id: params[:id])
-    @match = current_user.all_matches.find_by("sender_id = ? OR receiver_id = ?", @user.id, @user.id)
-    @match ||= Match.new
-  end
   def next_match
     @user = User.find(params[:id])
     @user_hobby = UserHobby.where(user_id: params[:id])
@@ -45,4 +47,13 @@ class UsersController < ApplicationController
     @match ||= Match.new
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :photo)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

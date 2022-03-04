@@ -2,23 +2,28 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-      <h1 class="homepage-title"><%= @user.first_name %>'s profile</h1>
-        <h2>Your hobbies</h2>
-          <div class="container">
-            <% @hobbies.each do |hobby| %>
-              <div class="btn-delete">
-                <%= link_to user_hobby_path(hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" } do %>
-                  <%= image_tag "icon-delete.png" %>
-                <% end %>
-              </div>
-              <div class="hobby-card">
-                <div class="card-image">
-                  <%= cl_image_tag hobby.photo.key %>
+
+            <div class="user-banner">
+              <% if @user.photo.key.nil?%>
+                <p>you dont have a photo</p>
+              <% else%>
+                <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
+              <% end%>
+                <h1><%= @user.first_name %> Profile Page</h1>
+                <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
+            <h2>Your hobbies</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="d-flex justify-content-between mx-2">
+            <% @user_hobbies.each do |user_hobby| %>
+              <div class="hobbie-delete">
+                <div class="btn-delete py-2 p-2"><%=link_to image_tag("icon-delete.png"), user_hobby_path(user_hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" }%>
                 </div>
-                <div class="card-name">
-                  <%= hobby.name %>
-                </div>
-                <a><%= link_to 'Find hobbymate', new_match_path, class: "btn btn-add-hobby findHobbymate" %></a>
+                <h2 class="py-2 p-2"><%= user_hobby.hobby.name %></h2>
+
               </div>
             <% end %>
           </div>

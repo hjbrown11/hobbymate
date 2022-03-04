@@ -13,4 +13,11 @@ class UserHobbiesController < ApplicationController
       redirect_to user_path(@user)
     end
   end
+
+  def destroy
+    @user = current_user
+    @userhobby = UserHobby.find(params[:id])
+    @userhobby.destroy
+    redirect_to user_path(@user)
+  end
 end
