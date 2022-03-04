@@ -56,7 +56,7 @@ hobby = Hobby.create(name: "Astrology", description: "Is a study of various plan
 hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)
 
-file = URI.open('https://images.unsplash.com/photo-1513097847644-f00cfe868607?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1lZGl0YXRpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')
+file = URI.open('https://images.unsplash.com/photo-1640622332859-55e65253475d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80')
 hobby = Hobby.create(name: "Meditation", description: "Is the practice of focusing the mind and relaxing the body. When used consistently over time an individual can literally train the mind to obtain clarity and even different levels of consciousness and awareness about themselves, others and their environment.")
 hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)

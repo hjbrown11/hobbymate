@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'new_match', to: 'matches#new_match', as: :new_match
 
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index] do
     resources :hobbies, only: [:index, :show]
   end
   resources :matches, except: :edit do
