@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
   end
 
   def new_match
-    @user = current_user.next_match_user.sample
+    @user = current_user.next_match_user
     if @user.nil?
       redirect_to user_path(current_user)
     else

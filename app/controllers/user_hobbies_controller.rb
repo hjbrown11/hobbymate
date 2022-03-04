@@ -10,8 +10,8 @@ class UserHobbiesController < ApplicationController
       @hobbies.each do |hobby|
         UserHobby.create(user_id: @user.id, hobby_id: hobby.id)
       end
-      redirect_to user_path(@user)
     end
+    redirect_to new_match_path
   end
 
   def destroy
