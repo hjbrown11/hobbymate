@@ -3,7 +3,7 @@
   background-color: transparent;
 }
 .navbar-title-website {
-  font-size: 40px;
+  font-size: 30px;
   color: white;
   text-decoration: none;
 }
@@ -35,4 +35,9 @@
 .nav-link img {
   width: 40px;
   height: 40px;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: flex-end;
 }

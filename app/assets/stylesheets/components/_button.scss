@@ -10,9 +10,14 @@
   display: block;
   margin-left: 20px;
   margin-right: 20px;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.findHobbymate {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 
 .btn-add-hobby:hover {
   background: #ffffff;
@@ -80,5 +85,8 @@
 // delete button on the user/:id/show
 
 .btn-delete img {
-  width: 20px;
+  width: 26px;
+  position: relative;
+  top: 29px;
+  left: 126px;
 }
