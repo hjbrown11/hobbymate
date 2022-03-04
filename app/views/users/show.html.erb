@@ -1,19 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-
-            <div class="user-banner">
-              <% if @user.photo.key.nil?%>
-                <p>you dont have a photo</p>
-              <% else%>
-                <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
-              <% end%>
-                <h1><%= @user.first_name %> Profile Page</h1>
-                <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
-            <h2 class="m-3">Your hobbies</h2>
-            </div>
-          </div>
-        </div>
+      <div class="user-banner">
+        <% if @user.photo.key.nil?%>
+          <p>you dont have a photo</p>
+        <% else%>
+          <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
+        <% end%>
+          <h1><%= @user.first_name %> Profile Page</h1>
+            <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
+          <h2 class="m-3">Your hobbies</h2>
       </div>
     </div>
   </div>
@@ -23,42 +19,36 @@
     <div class="hobbie-delete mt-3 p-2 d-flex align-items-center ">
       <div class="btn-delete"><%=link_to image_tag("icon-delete.png"), user_hobby_path(user_hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" }%>
       </div>
-      <h2 class="py-2 p-2 m-0"><%= user_hobby.hobby.name %></h2>
+        <h2 class="py-2 p-2 m-0"><%= user_hobby.hobby.name %></h2>
     </div>
   <% end %>
-</div>
-    </div>
-  </div>
 </div>
 
 <div class="homepage-all">
   <div id="homepage-block">
-
     <div>
       <h3 class="homepage-tagline">If you'd like to update your address or see hobbies in more categories, please make changes below:</h3>
     </div>
-
-  <div>
-  <div>
-    <%= form_with url: categories_path, method: :get do |f| %>
-    <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
-      <%= f.text_field :address,
-                        data: { geocoder_target: "address" },
-                        :class => "searchbar-homepage d-none"%>
-    </div>
-      <p class="form-subtitle">Select categories you're interested in</p>
-  </div>
-
-      <div class= "d-flex flex-wrap align-items-center">
-        <% @categories.each do |category| %>
-          <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
-          <%= f.label "categories[#{category.id}]", category.name %>
-        <% end %>
+    <div>
+      <div>
+        <%= form_with url: categories_path, method: :get do |f| %>
+        <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+          <%= f.text_field :address,
+                            data: { geocoder_target: "address" },
+                            :class => "searchbar-homepage d-none"%>
+        </div>
+          <p class="form-subtitle">Select categories you're interested in</p>
       </div>
-
-    <div class="tag-item-inputs">
-        <%= f.submit 'Next', :class => "searchbar-submit" %>
-      <% end %>
+      <div class= "d-flex flex-wrap align-items-center">
+          <% @categories.each do |category| %>
+            <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
+            <%= f.label "categories[#{category.id}]", category.name %>
+          <% end %>
+      </div>
+        <div class="tag-item-inputs">
+          <%= f.submit 'Next', :class => "searchbar-submit" %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
