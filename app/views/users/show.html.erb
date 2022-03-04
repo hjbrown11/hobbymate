@@ -1,28 +1,28 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-            <div class="user-banner">
-              <% if @user.photo.key.nil?%>
-                <p>you dont have a photo</p>
-              <% else%>
-                <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
-              <% end%>
-                <h1><%= @user.first_name %> Profile Page</h1>
-                <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
-            <h2>Your hobbies</h2>
-            </div>
-          </div>
-        </div>
+      <div class="user-banner">
+        <% if @user.photo.key.nil?%>
+          <p>you dont have a photo</p>
+        <% else%>
+          <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
+        <% end%>
+          <h1><%= @user.first_name %> Profile Page</h1>
+          <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
+      <h2>Your hobbies</h2>
       </div>
-          <div class="d-flex flex-wrap justify-content-around mx-4">
-            <% @user_hobbies.each do |user_hobby| %>
-              <div class="hobbie-delete mt-3 p-2 d-flex align-items-center ">
-                <div class="btn-delete"><%=link_to image_tag("icon-delete.png"), user_hobby_path(user_hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" }%>
-                </div>
-                <h2 class="py-2 p-2 m-0"><%= user_hobby.hobby.name %></h2>
-              </div>
-            <% end %>
-          </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-around mx-4">
+  <% @user_hobbies.each do |user_hobby| %>
+    <div class="hobbie-delete mt-3 p-2 d-flex align-items-center ">
+      <div class="btn-delete"><%=link_to image_tag("icon-delete.png"), user_hobby_path(user_hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" }%>
+      </div>
+      <h2 class="py-2 p-2 m-0"><%= user_hobby.hobby.name %></h2>
+    </div>
+  <% end %>
+</div>
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
 
   <div>
   <div>
-    <%= form_with url: categories_path, method: :GET do |f| %>
+    <%= form_with url: categories_path, method: :get do |f| %>
     <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
       <%= f.text_field :address,
                         data: { geocoder_target: "address" },
