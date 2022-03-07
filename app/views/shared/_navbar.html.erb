@@ -16,7 +16,6 @@
           <li class="nav-item">
             <%= link_to matches_path, class: "nav-link message" do %>
               <%= image_tag "message.png" %>
-
             <% end %>
           </li>
           <li class="nav-item">
@@ -27,6 +26,7 @@
           <li class="nav-item">
             <%= link_to "#", class: "nav-link message" do %>
               <%= image_tag "matches.png" %>
+              <%= render 'shared/notifications_match' %>
             <% end %>
           </li>
           <li class="nav-item">
