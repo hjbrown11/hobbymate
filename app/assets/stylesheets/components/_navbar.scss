@@ -35,10 +35,16 @@
 .nav-link img {
   width: 30px;
   height: 30px;
-  align-items: center;
+  display: inline;
 }
 
 .nav-item {
   display: flex;
-  justify-content: flex-end;
+}
+
+.me-auto {
+    /* margin-right: auto !important; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
