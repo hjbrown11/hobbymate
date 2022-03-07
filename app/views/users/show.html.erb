@@ -26,7 +26,7 @@
     <div class="hobbie-delete mt-3 p-2 d-flex align-items-center ">
       <div class="btn-delete"><%=link_to image_tag("icon-delete.png"), user_hobby_path(hobby[:id]), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" } %>
       </div>
-      <h2 class="m-0 py-1 px-2 m-0"><%= hobby[:name] %></h2>
+      <h3 class="m-0 py-1 px-2 m-0" style="color: white"><%= hobby[:name] %></h2>
     </div>
   <% end %>
 </div>

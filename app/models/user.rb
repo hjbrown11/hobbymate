@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :address_changed?
   has_many :user_hobbies
   has_many :hobbies, through: :user_hobbies
   has_many :sent_matches, foreign_key: "sender_id", class_name: "Match"
