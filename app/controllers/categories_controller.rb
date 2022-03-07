@@ -10,9 +10,10 @@ class CategoriesController < ApplicationController
       @categories = Category.where(id: ids)
     end
 
-    if params[:address]
+    if params[:address].present?
       current_user.address = params[:address]
       current_user.save
+      raise
     end
 
     if current_user.address.blank?
