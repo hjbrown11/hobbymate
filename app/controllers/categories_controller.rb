@@ -27,5 +27,6 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:hobby_id])
+    authorize(@category)
   end
 end

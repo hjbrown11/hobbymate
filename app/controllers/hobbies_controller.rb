@@ -12,5 +12,6 @@ class HobbiesController < ApplicationController
 
   def set_hobby
     @hobby = Hobby.find(params[:hobby_id])
+    authorize(@hobby)
   end
 end

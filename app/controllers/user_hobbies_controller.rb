@@ -1,5 +1,4 @@
 class UserHobbiesController < ApplicationController
-
   def create_many
     @user = current_user
     if params[:hobbies]
@@ -19,5 +18,6 @@ class UserHobbiesController < ApplicationController
     @userhobby = UserHobby.find(params[:id])
     @userhobby.destroy
     redirect_to user_path(@user)
+    authorize(@user)
   end
 end
