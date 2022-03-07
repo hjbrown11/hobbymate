@@ -21,15 +21,18 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.sender_id = current_user.id
     @match.save
-    redirect_to new_match_path
+    redirect_to new_match_path(status: @match.status, old_match_id: @match.id)
   end
 
   def update
     @match.update(match_params)
-    redirect_to new_match_path
+    redirect_to new_match_path(status: @match.status, old_match_id: @match.id)
   end
 
   def new_match
+    if params[:old_match_id]
+      @old_match = Match.find(params[:old_match_id])
+    end
     @user = current_user.next_match_user
     if @user.nil?
       redirect_to user_path(current_user)

@@ -21,7 +21,6 @@ class User < ApplicationRecord
         .where.not(id: self.id)
         .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
         .where("(matches.receiver_id = ? AND matches.status = 0) OR matches.id IS NULL", self.id)
-        .where.not("matches.sender_id = ? ", self.id)
         .first
   end
 
