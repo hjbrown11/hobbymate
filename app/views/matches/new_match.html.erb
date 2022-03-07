@@ -25,7 +25,7 @@
                   <%= simple_form_for @match do |f| %>
                     <%= f.input :status, input_html: { value: "accepted" }, as: :hidden  %>
                     <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
-                    <%= f.submit "Accept", class: "btn btn-match"%>
+                    <%= f.submit "Accept", class: "btn btn-match", formtarget: "_blank"%>
                   <% end %>
                 <% else %>
                   <%= simple_form_for @match do |f| %>
