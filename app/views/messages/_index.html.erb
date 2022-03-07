@@ -1,11 +1,15 @@
 <div class = "container mt-4">
   <div class="row justify-content-center">
     <div class="message-container">
-      <% @messages.each do |message| %>
-        <div class="message-bubble">
-          <p class="message-text"><%= message.content %></p>
-        </div>
-      <% end %>
+      <div class="messages" data-match-subscription-target="messages">
+        <% @match.messages.each do |message| %>
+          <% if message.user == current_user %>
+            <%= render 'messages/message', message: message, css_class: 'sent-message' %>
+          <% else %>
+            <%= render 'messages/message', message: message, css_class: 'received-message' %>
+          <% end %>
+        <% end %>
+      </div>
       <%= render "messages/new" %>
     </div>
   </div>
