@@ -7,7 +7,11 @@ class MessagesController < ApplicationController
     @message.user_id = @user
     @message.match_id = @match.id
     if @message.save
-      redirect_to match_path(@match.id)
+      MatchChannel.broadcast_to(
+        @match,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      head :ok
     else
       render 'matches/show'
     end
