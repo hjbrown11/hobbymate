@@ -23,4 +23,10 @@ class User < ApplicationRecord
         .where("(matches.receiver_id = ? AND matches.status = 0) OR matches.id IS NULL", self.id)
         .first
   end
+
+  def new_accepted_matches
+    self.all_matches.where(status: "accepted")
+        .left_joins(:messages)
+        .where("messages.id IS NULL")
+  end
 end
