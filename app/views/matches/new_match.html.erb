@@ -12,9 +12,10 @@
                     <div class="tag-hobby"><p> <%=user_hobby.hobby.name%></p></div>
                   <% end %>
                 </div>
-                <div class="m-2 mt-4" style="font-size: 16px"><p><%= @user.bio %></p></div>
+                <div class="m-0 my-3" style="font-size: 16px"><p><%= @user.bio %></p></div>
                 <div class="d-flex justify-content-between mb-3">
                   <% if @match.persisted?%>
+                    <% raise%>
                     <%= simple_form_for @match do |f|  %>
                       <%= f.input :status, input_html: { value: "rejected" }, as: :hidden  %>
                       <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
@@ -23,7 +24,7 @@
                     <%= simple_form_for @match do |f| %>
                       <%= f.input :status, input_html: { value: "accepted" }, as: :hidden  %>
                       <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
-                      <%= f.submit "Accept", class: "btn btn-match"%>
+                      <%= f.submit "Accept", class: "btn btn-match",target:"_blank"%>
                     <% end %>
                   <% else %>
                     <%= simple_form_for @match do |f| %>
@@ -44,3 +45,27 @@
     </div>
   </div>
 </div>
+<% if params[:status] == "accepted" %>
+  <div class="modal p-0" id="match_modal" data-controller="match-modal" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="text-align-center pt-3">
+          <h2 class="modal-title"> It's a Match! </h2>
+        </div>
+        <div class="modal-body">
+          <h5 id="modal-h2">You matched with <%= @old_match.receiver.first_name %> <%= @old_match.receiver.last_name %></h5>
+          <div class="modal-match-body d-flex justify-content-around align-items-center">
+            <div class="modal-image" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+            <i class="fas fa-star" id="modal-star"></i>
+            <div class="modal-image" style="background-image: url('<%= cl_image_path @old_match.receiver.photo.key %>')"></div>
+          </div>
+        </div>
+        <div class="modal-footer pt-0 pb-3">
+          <button type="button" class="btn modal-button" data-bs-dismiss="modal">Keep looking</button>
+          <button type="button" class="btn modal-button">Start chat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
