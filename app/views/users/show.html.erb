@@ -1,32 +1,39 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-      <div class="user-banner">
-        <% if @user.photo.key.nil?%>
-          <p>you dont have a photo</p>
-        <% else%>
-          <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
-        <% end%>
-          <h1><%= @user.first_name %> Profile Page</h1>
-            <%= link_to "Update your profile", edit_user_path(@user), class: "btn btn-warning" %>
-          <h2 class="m-3">Your hobbies</h2>
+            <div class="user-banner">
+              <% if @user.photo.key.nil?%>
+                <p>you dont have a photo</p>
+              <% else%>
+                <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
+              <% end%>
+              <div class="d-flex flex-wrap justify-content-around align-items-center mt-2">
+                <h1><%= @user.first_name %> Profile Page</h1>
+                <%= link_to edit_user_path(@user) do %>
+                <i class="fas fa-edit" style="color:white"></i>
+                <% end %>
+              </div>
+            <h2 class="m-0 mt-2">Your hobbies</h2>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="d-flex flex-wrap justify-content-around mx-4">
+<div class="d-flex flex-wrap justify-content-around m-0 mx-4">
   <% @user_hobbies.each do |user_hobby| %>
     <div class="hobbie-delete mt-3 p-2 d-flex align-items-center ">
       <div class="btn-delete"><%=link_to image_tag("icon-delete.png"), user_hobby_path(user_hobby.id), method: :delete, data: { confirm: "Are you sure you want to delete your hobby?" }%>
       </div>
-        <h2 class="py-2 p-2 m-0"><%= user_hobby.hobby.name %></h2>
+      <h2 class=" m-0 py-1 px-2 m-0"><%= user_hobby.hobby.name %></h2>
     </div>
   <% end %>
 </div>
 <div class="homepage-all">
   <div id="homepage-block">
     <div>
-      <h3 class="homepage-tagline">If you'd like to update your address or see hobbies in more categories, please make changes below:</h3>
+      <h3 class="homepage-tagline m-0 mb-3 ">Change your hobbies</h3>
     </div>
   <div>
     <%= form_with url: categories_path, method: :get do |f| %>
@@ -35,7 +42,7 @@
                         data: { geocoder_target: "address" },
                         :class => "searchbar-homepage d-none"%>
     </div>
-      <p class="form-subtitle">Select categories you're interested in</p>
+      <p class="form-subtitle m-0 my-3">Select categories you're interested in</p>
   </div>
     <div class="d-flex flex-wrap align-items-center">
       <% @categories.each_slice(2) do |category_pair| %>
