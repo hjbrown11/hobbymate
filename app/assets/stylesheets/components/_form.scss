@@ -1,0 +1,15 @@
+.form-control {
+  background-color: #ffe7dc45;
+  border-radius: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+  color: white;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.form-control[type="file"]:not(:disabled):not([readonly]) {
+  background-color: #ffe7dc45;
+}

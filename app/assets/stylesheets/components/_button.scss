@@ -3,14 +3,18 @@
 }
 
 .btn-add-hobby {
-  border-radius: 12px;
-  background: #ffffff;
-  color: orange;
-  transition: background 0.3s ease;
-  display: block;
-  margin-left: 20px;
-  margin-right: 20px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.35);
+  filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 4px 4px);
+  font-size: 1.5vmax;
+  border-radius: 5rem;
+  padding: 0.8rem 4rem;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  margin: 6%;
 }
 
 .findHobbymate {
