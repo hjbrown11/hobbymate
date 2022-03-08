@@ -35,12 +35,15 @@ class MatchesController < ApplicationController
     end
     @user = current_user.next_match_user
     if @user.nil?
-      redirect_to user_path(current_user)
+      redirect_to no_match_path
     else
       @user_hobby = UserHobby.where(user_id: @user.id)
       @match = current_user.all_matches.find_by("sender_id = ? OR receiver_id = ?", @user.id, @user.id)
       @match ||= Match.new
     end
+  end
+
+  def no_match
   end
 
   private

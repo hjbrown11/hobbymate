@@ -15,3 +15,4 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+//= require hammer

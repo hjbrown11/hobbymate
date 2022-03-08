@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show destroy edit update]
 
   get 'new_match', to: 'matches#new_match', as: :new_match
+  get 'no_match', to: 'matches#no_match', as: :no_match
 
   resources :categories, only: [:index] do
     resources :hobbies, only: %i[index show]
