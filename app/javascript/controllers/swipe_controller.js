@@ -1,27 +1,37 @@
-// Get a reference to an element
-const square = document.querySelector('.square');
+import { Controller } from "stimulus"
+import Hammer from "hammerjs"
 
-// Create a manager to manager the element
-const manager = new Hammer.Manager(square);
+export default class extends Controller {
+  static targets = ["card", "accept"]
 
-// Create a recognizer
-const Swipe = new Hammer.Swipe();
+  connect() {
+    console.log(this.acceptTarget)
 
-// Add the recognizer to the manager
-manager.add(Swipe);
+    // Create a manager to manager the element
+    this.manager = new Hammer.Manager(this.cardTarget);
 
-// Declare global variables to swiped correct distance
-const deltaX = 0;
-const deltaY = 0;
+    // Create a recognizer
+    this.swipe = new Hammer.Swipe();
 
-// Subscribe to a desired event
-manager.on('swipe', function (e) {
-  deltaX = deltaX + e.deltaX;
-  const direction = e.offsetDirection;
-  const translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+    // Add the recognizer to the manager
+    this.manager.add(this.swipe);
 
-  if (direction === 4 || direction === 2) {
-    e.target.innerText = deltaX;
-    e.target.style.transform = translate3d;
+    // Declare global variables to swiped correct distance
+    let deltaX = 0;
+
+    // Subscribe to a desired event
+    this.manager.on('swipe', (e) => {
+      deltaX = deltaX + e.deltaX;
+      const direction = e.offsetDirection;
+      const translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+
+      if (direction === 4 || direction === 2) {
+        this.cardTarget.style.transform = translate3d;
+      }
+
+      if (deltaX>200) {
+        this.acceptTarget.click()
+      }
+    });
   }
-});
+}

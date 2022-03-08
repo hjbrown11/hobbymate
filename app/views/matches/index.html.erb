@@ -1,18 +1,25 @@
-<h1 class="matches-index-title">Your matches</h1>
-<div class="match-page">
-  <% @matches.each do |match| %>
-    <div class="match-chat">
-      <% if match.sender_id == current_user.id %>
-      <%= cl_image_tag User.find(match.receiver_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to match_path(match) do %>
-        <p class="match-bubbles">Chat to <%= User.find(match.receiver_id).first_name %> <%= User.find(match.receiver_id).last_name %></p>
-      <% end %>
-      <% else %>
-      <%= cl_image_tag User.find(match.sender_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to match_path(match) do %>
-        <p class="match-bubbles">Chat to <%= User.find(match.sender_id).first_name %> <%= User.find(match.sender_id).last_name %></p>
+<div class="match-container">
+  <h1 class="matches-index-title">Your matches</h1>
+  <div class="match-page">
+    <% @matches.each do |match| %>
+      <div class="match-chat">
+        <% if match.sender_id == current_user.id %>
+        <div class="match-avatar m-0"><%= cl_image_tag User.find(match.receiver_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></div>
+        <%= link_to match_path(match) do %>
+          <p class="match-bubbles pl-2 w-90">Chat to <%= User.find(match.receiver_id).first_name %> <%= User.find(match.receiver_id).last_name %></p>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+        <% else %>
+        <%= cl_image_tag User.find(match.sender_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= link_to match_path(match) do %>
+          <p class="match-bubbles">Chat to <%= User.find(match.sender_id).first_name %> <%= User.find(match.sender_id).last_name %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="m-auto mb-2" style="width: 95%; height: 250px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
