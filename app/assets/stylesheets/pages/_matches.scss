@@ -3,10 +3,10 @@
   display: inline-block;
   font-size: 1.5vmax;
   border-radius: 50rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 1rem 65px;
   background-color: rgba(255, 0, 0, 0.4);
   color: #ffffff;
-
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .match-page {
@@ -16,4 +16,28 @@
 .match-chat {
   display: flex;
   align-self: center;
+  position:relative;
+  align-content: center;
+  width: 90%;
+}
+
+.match-avatar{
+  height: 50px;
+  position:absolute;
+  left: 3px;
+  top: 3px;
+
+  .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+}
+
+.match-container{
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
