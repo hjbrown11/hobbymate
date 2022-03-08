@@ -374,7 +374,7 @@ hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)
 
 file = URI.open('https://images.unsplash.com/photo-1610735048409-b72a192e89fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80')
-hobby = Hobby.create(name: "Film-making/Cinematography", description: "Cinematography is the art and craft of capturing a given directive on camera. It involves the general composition of scenes, camera angles, choice of lens, lighting, colour etc. Filmmaking is the process by which a film is made from start to finish.")
+hobby = Hobby.create(name: "Cinematography", description: "Cinematography is the art and craft of capturing a given directive on camera. It involves the general composition of scenes, camera angles, choice of lens, lighting, colour etc. Filmmaking is the process by which a film is made from start to finish.")
 hobby.photo.attach(io: file, filename: hobby.name, content_type: 'image/jpeg')
 category_hobby = CategoryHobby.create(category: category, hobby: hobby)
 
@@ -568,7 +568,7 @@ user_nineteen = User.create(email: "user_nineteen@gmail.com", password: "123456"
 file = URI.open('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80')
 user_nineteen.photo.attach(io: file, filename: user_nineteen.last_name, content_type: 'image/jpeg')
 
-user_twenty = User.create(email: "user_twenty@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "Twenty", age: 37, address: "Campus de Mundet, Universitat de Barcelona, Passeig de la Vall d'Hebron, 171, 08035 Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. Fact about me...I can't stand #{Faker::Restaurant.type} food.")
+user_twenty = User.create(email: "user_twenty@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "Twenty", age: 37, address: "C/ de la Portaferrissa, 22, 08002, Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. Fact about me...I can't stand #{Faker::Restaurant.type} food.")
 file = URI.open('https://images.unsplash.com/photo-1487573884658-a5d3c667584e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1703&q=80')
 user_twenty.photo.attach(io: file, filename: user_twenty.last_name, content_type: 'image/jpeg')
 
