@@ -498,7 +498,7 @@ hobby_sample_twenty = Hobby.all.sample
 user_one = User.create(email: "user_one@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "One", age: 36, address: "C/ d'Arimon, 22, 08022, Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. I'm also super interested in #{Faker::Science.science}.")
 file = URI.open('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')
 user_one.photo.attach(io: file, filename: user_one.last_name, content_type: 'image/jpeg')
-user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: Faker::Name.male_first_name, last_name: "Two", age: 25, address: "Cercas Bajas 22, Barcelona, 08000", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. I also loveeee #{Faker::Restaurant.type}.")
+user_two = User.create(email: "user_two@gmail.com", password: "123456", first_name: Faker::Name.male_first_name, last_name: "Two", age: 25, address: "Cercas Bajas 22, Barcelona, 08000", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. I also loveeee #{Faker::Restaurant.type} food.")
 file = URI.open('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')
 user_two.photo.attach(io: file, filename: user_two.last_name, content_type: 'image/jpeg')
 
@@ -524,7 +524,7 @@ user_eight = User.create(email: "user_eight@gmail.com", password: "123456", firs
 file = URI.open('https://images.unsplash.com/photo-1604057883945-2b8b91ea1575?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')
 user_eight.photo.attach(io: file, filename: user_eight.last_name, content_type: 'image/jpeg')
 
-user_nine = User.create(email: "user_nine@gmail.com", password: "123456", first_name: Faker::Name.male_first_name, last_name: "Nine", age: 31, address: "Carrer del Vallespir, 44, 08014, Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. My favorite food is #{Faker::Restaurant.type}.")
+user_nine = User.create(email: "user_nine@gmail.com", password: "123456", first_name: Faker::Name.male_first_name, last_name: "Nine", age: 31, address: "Carrer del Vallespir, 44, 08014, Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. My favorite food is #{Faker::Restaurant.type} food.")
 file = URI.open('https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')
 user_nine.photo.attach(io: file, filename: user_nine.last_name, content_type: 'image/jpeg')
 user_ten = User.create(email: "user_ten@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "Ten", age: 31, address: "Gran Via de les Corts Catalanes, 111, 08075, Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. I work in #{Faker::Science.science}.")
@@ -568,7 +568,7 @@ user_nineteen = User.create(email: "user_nineteen@gmail.com", password: "123456"
 file = URI.open('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80')
 user_nineteen.photo.attach(io: file, filename: user_nineteen.last_name, content_type: 'image/jpeg')
 
-user_twenty = User.create(email: "user_twenty@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "Twenty", age: 37, address: "Campus de Mundet, Universitat de Barcelona, Passeig de la Vall d'Hebron, 171, 08035 Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. Fact about me...I can't stand #{Faker::Restaurant.type}.")
+user_twenty = User.create(email: "user_twenty@gmail.com", password: "123456", first_name: Faker::Name.female_first_name, last_name: "Twenty", age: 37, address: "Campus de Mundet, Universitat de Barcelona, Passeig de la Vall d'Hebron, 171, 08035 Barcelona", bio: "I love #{Faker::Hobby.activity} and #{Faker::Hobby.activity}. Fact about me...I can't stand #{Faker::Restaurant.type} food.")
 file = URI.open('https://images.unsplash.com/photo-1487573884658-a5d3c667584e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1703&q=80')
 user_twenty.photo.attach(io: file, filename: user_twenty.last_name, content_type: 'image/jpeg')
 
