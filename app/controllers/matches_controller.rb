@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:destroy, :update, :show]
+  before_action :set_match, only: %i[destroy update show]
   def index
     @matches = policy_scope(Match).all
   end
