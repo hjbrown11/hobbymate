@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import Hammer from "hammerjs"
 
 export default class extends Controller {
-  static targets = ["card", "accept"]
+  static targets = ["card", "accept", "reject"]
 
   connect() {
     console.log(this.acceptTarget)
@@ -31,6 +31,10 @@ export default class extends Controller {
 
       if (deltaX>200) {
         this.acceptTarget.click()
+      }
+
+      if (deltaX<-200) {
+        this.rejectTarget.click()
       }
     });
   }
