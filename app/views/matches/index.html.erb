@@ -3,13 +3,13 @@
   <% @matches.each do |match| %>
     <div class="match-chat">
       <% if match.sender_id == current_user.id %>
-      <%= cl_image_tag User.find(match.sender_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to match_path(match, anchor: "message-#{match.messages.last.id}") do %>
+      <%= cl_image_tag User.find(match.receiver_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= link_to match_path(match) do %>
         <p class="match-bubbles">Chat to <%= User.find(match.receiver_id).first_name %> <%= User.find(match.receiver_id).last_name %></p>
       <% end %>
       <% else %>
       <%= cl_image_tag User.find(match.sender_id).photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to match_path(match, anchor: "message-#{match.messages.last.id}") do %>
+      <%= link_to match_path(match) do %>
         <p class="match-bubbles">Chat to <%= User.find(match.sender_id).first_name %> <%= User.find(match.sender_id).last_name %></p>
         <% end %>
       <% end %>
