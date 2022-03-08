@@ -1,6 +1,6 @@
 <!-- message -->
-<a class="notification" onclick="toastr.error('You have a match');">
-  <% if current_user.new_accepted_matches.present? %>
+<% if current_user.new_accepted_matches.present? %>
+  <a class="notification" onclick="toastr.error('You have a match');">
     <%= current_user.new_accepted_matches %>
-  <% end%>
-</a>
+  </a>
+<% end%>

@@ -1,0 +1,35 @@
+<%# <body class="flex-column center-center">
+    <header>Swipe Left or Right</header>
+    <div class="square center-center"></div>
+</body>   %>
+<div class="no_match_page col-12">
+  <div class="show_match position-relative col-12">
+    <div class="container">
+      <div class="container cercle d-flex align-items-center">
+        <div class="profile-picture">
+          <% if current_user.photo.key.nil?%>
+            <p>you dont have a photo</p>
+          <% else%>
+            <div class="profile-image" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+          <% end%>
+        </div>
+        <svg class="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+          <%# <circle cx="180" cy="180" r="180" stroke="#874356"/> %>
+          <circle cx="180" cy="180" r="167" stroke="#B762C1" stroke-opacity="30%"/>
+          <circle cx="180" cy="180" r="142" stroke="#B762C1" stroke-opacity="65%"/>
+          <circle cx="180" cy="180" r="117" stroke="#B762C1" style="100%"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="show_match col-12">
+    <div class="d-flex flex-wrap justify-content-around align-items-center mt-2">
+      <h1>There's no one new around you</h1>
+    </div>
+  </div>
+  <div class="show_match col-12">
+    <div class="btn-show_match">
+      <p><%= link_to 'Show my matches', matches_path %></p>
+    </div>
+  </div>
+</div>

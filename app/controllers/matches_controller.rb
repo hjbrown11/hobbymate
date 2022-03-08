@@ -36,7 +36,7 @@ class MatchesController < ApplicationController
     end
     @user = current_user.next_match_user
     if @user.nil?
-      redirect_to user_path(current_user)
+      redirect_to no_match_path
       authorize(Match.new)
     else
       @user_hobby = UserHobby.where(user_id: @user.id)
@@ -44,6 +44,9 @@ class MatchesController < ApplicationController
       @match ||= Match.new
       authorize(@match)
     end
+  end
+
+  def no_match
   end
 
   private
