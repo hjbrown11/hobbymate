@@ -28,4 +28,8 @@ class MatchPolicy < ApplicationPolicy
   def new_match?
     true
   end
+
+  def no_match
+    true
+  end
 end

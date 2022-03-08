@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:destroy, :update, :show]
   before_action :my_matches, only: :index
+
   def index
     @markers = @my_matches.map do |match|
       {
