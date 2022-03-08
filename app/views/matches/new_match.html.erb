@@ -1,6 +1,6 @@
 <div class="swipe-container container" data-controller="swipe">
   <h2 class="m-0 mx-4 text-align-center" style="color: white">Swipe to find your next hobbymate</h2>
-    <div class="container">
+
       <div class="row justify-content-center h-100">
         <div class="col">
           <div class="user-card" data-swipe-target="card">
@@ -18,7 +18,7 @@
                     <%= simple_form_for @match do |f|  %>
                       <%= f.input :status, input_html: { value: "rejected" }, as: :hidden  %>
                       <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
-                      <%= f.submit "Pass", class: "btn btn-match-pass"%>
+                      <%= f.submit "Pass", class: "btn btn-match-pass", data: {swipe_target:"reject"}%>
                     <% end %>
                     <%= simple_form_for @match do |f| %>
                       <%= f.input :status, input_html: { value: "accepted" }, as: :hidden  %>
@@ -29,7 +29,7 @@
                     <%= simple_form_for @match do |f| %>
                       <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
                       <%= f.input :status, input_html: { value: "rejected" }, as: :hidden  %>
-                      <%= f.submit "Pass", class: "btn btn-match-pass"%>
+                      <%= f.submit "Pass", class: "btn btn-match-pass", data: {swipe_target:"reject"}%>
                     <% end %>
                     <%= simple_form_for @match do |f| %>
                       <%= f.input :receiver_id, input_html: { value: @user.id }, as: :hidden  %>
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-    </div>
+
   <% if params[:status] == "accepted" %>
     <div class="modal p-0" id="match_modal" data-controller="match-modal" tabindex="-1" >
       <div class="modal-dialog modal-dialog-centered">
