@@ -7,6 +7,6 @@
     label: false,
     placeholder: "Message your match!",
     wrapper_html: {class: "message-form-box"}%>
-    <%= f.submit "Send", :class => "new-message-submit"%>
+    <%= f.submit "Submit", :type => :image, :src => image_path("arrow-message.png"), :class => "new-message-submit"%>
   <% end %>
 </div>

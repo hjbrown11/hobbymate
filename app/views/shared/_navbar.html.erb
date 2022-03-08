@@ -21,11 +21,6 @@
           <li class="nav-item">
             <%= link_to user_path(current_user), class: "nav-link message" do %>
               <%= image_tag "profile.png" %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "#", class: "nav-link message" do %>
-              <%= image_tag "matches.png" %>
               <%= render 'shared/notifications_match' %>
             <% end %>
           </li>
