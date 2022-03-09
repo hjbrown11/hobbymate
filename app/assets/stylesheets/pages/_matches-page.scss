@@ -3,7 +3,7 @@
   font-size: 30px;
 }
 
-.match-page-page {
+.match-page-page:not(.match-page) {
   background-color: rgba(255, 0, 0, 0.364);
   border-radius: 10px;
   margin-left: 15px;
