@@ -120,10 +120,9 @@
 }
 
 // submit button for edit the progile page
-button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+.edit-user-button {
   cursor: pointer;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
