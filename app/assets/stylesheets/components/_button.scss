@@ -71,6 +71,7 @@
 }
 
 .devise-button {
+  display: flow-root;
   border-radius: 5rem;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -78,6 +79,8 @@
   font-size: 1vmax;
   padding: 0.2rem 3rem;
   border: none;
+  width: 100%;
+  display: block;
 }
 
 .devise-button:hover {
@@ -85,6 +88,9 @@
   text-decoration: none;
 }
 
+.form-actions {
+  padding-bottom: 40px;
+}
 
 // delete button on the user/:id/show
 
