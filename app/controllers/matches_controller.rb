@@ -3,14 +3,14 @@ class MatchesController < ApplicationController
   before_action :my_matches, only: :index
 
   def index
-    @markers = @my_matches.map do |match|
-      {
-        lat: match.latitude,
-        lng: match.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { match: match }),
-        image_url: helpers.image_url(match.photo.url)
-      }
-    end
+    # @markers = @my_matches.map do |match|
+    #   {
+    #     lat: match.latitude,
+    #     lng: match.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { match: match }),
+    #     image_url: helpers.image_url(match.photo.url)
+    #   }
+    # end
   end
 
   def show
@@ -78,8 +78,6 @@ class MatchesController < ApplicationController
         match.sender_id
       end
     end
-    @my_matches = matches.map do |match|
-      User.find(match)
-    end
+    @my_matches = matches.map { |match| User.find(match) }
   end
 end
