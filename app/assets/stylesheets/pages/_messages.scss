@@ -27,13 +27,16 @@
   overflow: scroll;
   background-color: rgba(255, 0, 0, 0.364);
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .received-message {
   background-color: rgba(255, 203, 136, 0.8);
   border-radius: 1rem;
   position: relative;
-  margin-left: 20px;
+  align-self: flex-start;
   margin-bottom: 10px;
   padding: 10px;
   text-align: left;
@@ -45,7 +48,7 @@
   background-color: rgba(255, 146, 146, 0.8);
   position: relative;
   margin-bottom: 10px;
-  margin-left: calc(100% - 240px);
+  align-self: flex-end;
   padding: 10px;
   text-align: left;
   border: 2px solid #fa7b7b;

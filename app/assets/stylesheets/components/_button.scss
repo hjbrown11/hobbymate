@@ -65,13 +65,17 @@
 }
 
 .devise-button {
+  display: flow-root;
   border-radius: 5rem;
   color: rgb(255, 255, 255);
   text-align: center;
   background-color: rgba(255,0,0,0.4);
-  font-size: 1vmax;
+  font-size: 16px;
   padding: 0.2rem 3rem;
   border: none;
+  width: 100%;
+  display: block;
+  text-decoration: none;
 }
 
 .devise-button:hover {
@@ -79,6 +83,9 @@
   text-decoration: none;
 }
 
+.form-actions {
+  padding-bottom: 40px;
+}
 
 // delete button on the user/:id/show
 
@@ -114,10 +121,9 @@
 }
 
 // submit button for edit the progile page
-button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+.edit-user-button {
   cursor: pointer;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }

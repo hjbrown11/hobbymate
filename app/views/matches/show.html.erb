@@ -1,7 +1,8 @@
 <div class="container match"
   data-controller="match-subscription"
   data-match-subscription-match-id-value="<%= @match.id %>"
+  data-match-subscription-current-user-id-value="<%= current_user.id %>"
 >
-<h1 class="messages-main-title">Your messages</h1>
+<h1 class="messages-main-title">Your conversation with <%= @match.sender_id == current_user ? "#{User.find(@match.sender_id).first_name}" : "#{User.find(@match.receiver_id).first_name}" %></h1>
 <%= render "messages/index" %>
 </div>
