@@ -3,14 +3,16 @@ class MatchesController < ApplicationController
   before_action :my_matches, only: :index
 
   def index
-    # @markers = @my_matches.map do |match|
-    #   {
-    #     lat: match.latitude,
-    #     lng: match.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { match: match }),
-    #     image_url: helpers.image_url(match.photo.url)
-    #   }
-    # end
+    @markers = @my_matches.map do |match|
+      if match.present?
+        {
+          lat: match.latitude,
+          lng: match.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { match: match }),
+          image_url: helpers.image_url(match.photo.url)
+        }
+      end
+    end
   end
 
   def show
@@ -40,6 +42,7 @@ class MatchesController < ApplicationController
   end
 
   def new_match
+
     if params[:old_match_id]
       @old_match = Match.find(params[:old_match_id])
     end
@@ -70,14 +73,16 @@ class MatchesController < ApplicationController
   end
 
   def my_matches
-    @matches = policy_scope(Match).all
-    matches = @matches.map do |match|
-      if match.sender_id == current_user.id
-        match.receiver_id
-      else
-        match.sender_id
+    @matches = Match.all
+    @my_matches = @matches.map do |match|
+      if match.status == "accepted"
+        if match.sender_id == current_user.id
+          user = match.receiver_id
+        else
+          user = match.sender_id
+        end
+        User.find(user)
       end
     end
-    @my_matches = matches.map { |match| User.find(match) }
   end
 end

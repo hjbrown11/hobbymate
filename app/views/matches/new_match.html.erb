@@ -12,6 +12,7 @@
                     <div class="tag-hobby"><p> <%=user_hobby.hobby.name%></p></div>
                   <% end %>
                 </div>
+                <%# raise %>
                 <p class="swipe-text"><%= @user.bio %></p>
                 <div class="buttons-swipe">
                   <% if @match.status == "pending"%>
@@ -61,7 +62,8 @@
           </div>
           <div class="modal-footer pt-0 pb-3">
             <button type="button" class="btn modal-button" data-bs-dismiss="modal">Keep looking</button>
-            <button type="button" class="btn modal-button">Start chat</button>
+            <%= link_to "Start chat", match_path("#{@old_match.id}#message-"), class: 'btn modal-button' %>
+
           </div>
         </div>
       </div>
