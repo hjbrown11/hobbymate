@@ -28,7 +28,9 @@
             <%= link_to destroy_user_session_path, :method => :delete , class: "nav-link message" do %>
               <%= image_tag "logout.png" %>
             <% end %>
+          </div>
           </li>
+        </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
