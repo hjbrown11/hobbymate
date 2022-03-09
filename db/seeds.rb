@@ -587,12 +587,8 @@ user_thirty.photo.attach(io: file, filename: user_thirty.last_name, content_type
 
 # USER HOBBY SEEDS - THIS WILL ASSIGN HOBBIES TO BOTH MATCHED AND UNMATCHED USERS, SO THEY SHOW UP IN EACH OTHER'S SUGGESTIONS
 UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_one.id)
-UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_two.id)
-UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_nine.id)
-UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_four.id)
-UserHobby.create!(user_id: user_one.id, hobby_id: hobby_sample_ten.id)
 
-UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_two.id)
+UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_one.id)
 UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_five.id)
 UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_four.id)
 UserHobby.create!(user_id: user_two.id, hobby_id: hobby_sample_seven.id)
@@ -601,13 +597,13 @@ UserHobby.create!(user_id: user_three.id, hobby_id: hobby_sample_one.id)
 UserHobby.create!(user_id: user_three.id, hobby_id: hobby_sample_nine.id)
 UserHobby.create!(user_id: user_three.id, hobby_id: hobby_sample_six.id)
 
-UserHobby.create!(user_id: user_four.id, hobby_id: hobby_sample_seven.id)
+UserHobby.create!(user_id: user_four.id, hobby_id: hobby_sample_one.id)
 UserHobby.create!(user_id: user_four.id, hobby_id: hobby_sample_eight.id)
 UserHobby.create!(user_id: user_four.id, hobby_id: hobby_sample_nine.id)
 
 UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_six.id)
 UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_five.id)
-UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_eight.id)
+UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_one.id)
 UserHobby.create!(user_id: user_five.id, hobby_id: hobby_sample_four.id)
 
 UserHobby.create!(user_id: user_six.id, hobby_id: hobby_sample_three.id)
