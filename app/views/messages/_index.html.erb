@@ -5,8 +5,10 @@
         <% @match.messages.each do |message| %>
           <% if message.user == current_user %>
             <%= render 'messages/message', message: message, css_class: 'sent-message' %>
+            <%= cl_image_tag message.user.photo.key, class: "avatar-message-sent", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= render 'messages/message', message: message, css_class: 'received-message' %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-message-receiver", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
         <% end %>
       </div>
