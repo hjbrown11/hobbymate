@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     if params[:address].present?
       current_user.address = params[:address]
       if current_user.save
-        redirect_to categories_path
+        redirect_to categories_path(categories: params[:categories].permit!)
       end
     end
 

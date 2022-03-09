@@ -42,7 +42,6 @@ class MatchesController < ApplicationController
   end
 
   def new_match
-
     if params[:old_match_id]
       @old_match = Match.find(params[:old_match_id])
     end
@@ -73,7 +72,7 @@ class MatchesController < ApplicationController
   end
 
   def my_matches
-    @matches = Match.all
+    @matches = Match.where(sender_id: current_user.id).or(Match.where(receiver_id: current_user.id))
     @my_matches = @matches.map do |match|
       if match.status == "accepted"
         if match.sender_id == current_user.id
