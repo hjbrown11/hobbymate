@@ -20,6 +20,7 @@ class User < ApplicationRecord
     User.joins(:user_hobbies).left_joins(:sent_matches)
         .where.not(id: self.id)
         .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
+        .where.not("matches.sender_id = ?", self.id)
         .where("(matches.receiver_id = ? AND matches.status = 0) OR matches.id IS NULL", self.id)
         .first
   end
