@@ -12,7 +12,9 @@ class CategoriesController < ApplicationController
 
     if params[:address].present?
       current_user.address = params[:address]
-      current_user.save
+      if current_user.save
+        redirect_to categories_path
+      end
     end
 
     if current_user.address.blank?

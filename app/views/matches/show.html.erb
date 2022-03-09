@@ -1,6 +1,7 @@
 <div class="container match"
   data-controller="match-subscription"
   data-match-subscription-match-id-value="<%= @match.id %>"
+  data-match-subscription-current-user-id-value="<%= current_user.id %>"
 >
 <h1 class="messages-main-title">Your messages</h1>
 <%= render "messages/index" %>
