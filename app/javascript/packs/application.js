@@ -12,7 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "bootstrap"
+import bootstrap from "bootstrap/dist/js/bootstrap"
 import "controllers"
 
 //= require hammer
