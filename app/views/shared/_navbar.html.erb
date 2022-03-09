@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-lg navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo-white.png" %>
@@ -13,30 +13,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
+            <li class="nav-item">
             <%= link_to matches_path, class: "nav-link message" do %>
               <%= image_tag "message.png" %>
               <%= render 'shared/notifications_match' %>
             <% end %>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
             <%= link_to user_path(current_user), class: "nav-link message" do %>
               <%= image_tag "profile.png" %>
             <% end %>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
             <%= link_to destroy_user_session_path, :method => :delete , class: "nav-link message" do %>
               <%= image_tag "logout.png" %>
             <% end %>
-          </div>
-          </li>
-        </li>
+            </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-item" %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-</div>
+</nav>
