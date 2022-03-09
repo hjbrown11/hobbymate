@@ -7,10 +7,12 @@
   background-color: rgba(255, 0, 0, 0.4);
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.25);
+  width: 93vw;
+  font-size: 18px;
 }
 
 .match-page {
-  padding-left: 5px;
+  margin: 0 auto;
 }
 
 .match-chat {
@@ -24,8 +26,8 @@
 .match-avatar{
   height: 50px;
   position:absolute;
-  left: 3px;
-  top: 3px;
+  left: 5px;
+  top: 7px;
 
   .avatar {
   width: 45px;
@@ -40,4 +42,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.match-link{
+  width: 90%;
 }

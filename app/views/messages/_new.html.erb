@@ -3,10 +3,12 @@
       remote: true,
       html: {data: {match_subscription_target: "form"}, class: "d-flex"} do |f|
   %>
+  <div class="message-send">
     <%= f.text_field :content,
     label: false,
     placeholder: "Message your match!",
     wrapper_html: {class: "message-form-box"}%>
-    <%= f.submit "Submit", :type => :image, :src => image_path("arrow-message.png"), :class => "new-message-submit"%>
+    <%= f.submit "Send", :class => "message-button"%>
   <% end %>
+  </div>
 </div>
