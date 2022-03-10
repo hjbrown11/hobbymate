@@ -2,6 +2,7 @@
   <%= cl_image_tag image.key, class: "avatar-message-sent" %>
   <small class="message-sender-data">
     <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
+    <br>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p class="message-text"><%= message.content %></p>
