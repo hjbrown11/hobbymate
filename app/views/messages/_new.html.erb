@@ -4,9 +4,9 @@
       html: {data: {match_subscription_target: "form"}, class: "d-flex"} do |f|
   %>
   <div class="message-send">
-    <%= f.text_field :content,
+    <%= f.input :content,
     label: false,
-    placeholder: "Message your Hobbymate!",
+    placeholder: "Message your Hobbymate!", as: :text,
     wrapper_html: {class: "message-form-box"}%>
     <%= f.submit "Send", :class => "message-button"%>
   <% end %>
