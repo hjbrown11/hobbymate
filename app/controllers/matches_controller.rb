@@ -42,7 +42,6 @@ class MatchesController < ApplicationController
   end
 
   def new_match
-
     if params[:old_match_id]
       @old_match = Match.find(params[:old_match_id])
     end

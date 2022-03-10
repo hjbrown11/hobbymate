@@ -17,12 +17,13 @@ class User < ApplicationRecord
 
   def next_match_user
     # Missing check if I already sent a match
-    User.joins(:user_hobbies).left_joins(:sent_matches)
+    User.joins(:user_hobbies).joins("LEFT JOIN matches ON users.id = matches.sender_id OR users.id = matches.receiver_id")
         .where.not(id: self.id)
         .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
-        .where.not("matches.sender_id = ?", self.id)
-        .where("(matches.receiver_id = ? AND matches.status = 0) OR matches.id IS NULL", self.id)
+        .where.not(matches: { id: self.sent_matches.pluck(:id) })
+        .where.not(matches: { id: self.received_matches.where.not("status = 0").pluck(:id) })
         .first
+
   end
 
   def new_accepted_matches

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user_hobbies = UserHobby.where("user_id = #{current_user.id}")
     @hobbies = []
     user_hobbies.each do |hobby|
-      @hobbies << {name: hobby.hobby.name, id: hobby.hobby.id}
+      @hobbies << {name: hobby.hobby.name, id: hobby.id}
     end
     @hobbies.uniq!
     @categories = Category.all
