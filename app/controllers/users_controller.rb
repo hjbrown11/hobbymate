@@ -13,7 +13,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @userhobbies = current_user.user_hobbies
+    current_user.hobbies << Hobby.find(params[:hobby_id]) if params[:hobby_id].present? && !current_user.hobbies.include?(Hobby.find(params[:hobby_id]))
+    @hobbies = current_user.hobbies
+    user_hobbies = UserHobby.where("user_id = #{current_user.id}")
+    @hobbies = []
+    user_hobbies.each do |hobby|
+      @hobbies << {name: hobby.hobby.name, id: hobby.id}
+    end
+    @hobbies.uniq!
     @categories = Category.all
     if params[:categories]
       ids = params[:categories].keys.select do |id|
