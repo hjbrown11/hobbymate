@@ -13,12 +13,14 @@
 .match-page {
   height: 45vh;
   overflow: scroll;
-  background-color: #fc529673;
+  background-color: #f55c5d80;
   border-radius: 1rem;
   display: flex;
+  width: 90%;
   flex-direction: column;
   padding: 10px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgb(0, 0, 0 / 20%);
+  margin: 0 auto;
 }
 
 .match-chat {
