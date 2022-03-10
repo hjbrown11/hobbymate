@@ -93,11 +93,11 @@
 }
 
 .shifted-row:nth-child(2n) {
-  margin-left: 10px;
+  width: 100%;
   margin-top: 10px;
 }
 
 .shifted-row:nth-child(2n + 1) {
-  margin-left: -10px;
+  width: 100%;
   margin-top: 10px;
 }

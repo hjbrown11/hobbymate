@@ -24,12 +24,12 @@ h1 {
 .card-name {
   color: white;
   font-size: 16px;
-  margin-top: 0.6rem;
   margin-bottom: 0.4rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   height: 50%;
+  padding-top: 15px;
 }
 
 .card-description {
@@ -102,7 +102,7 @@ h1 {
   background-color: rgba(255, 0, 0, 0.4);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
   color: #ffffff;
-  margin-right: 0.6rem;
+
   margin-bottom: 0.4rem;
   width: 123px;
   text-align: center;

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :users, only: %i[index show destroy edit update]
+  resources :users, only: %i[index show edit update]
 
   get 'new_match', to: 'matches#new_match', as: :new_match
   get 'no_match', to: 'matches#no_match', as: :no_match

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:destroy, :edit, :update, :show, :match]
+  before_action :set_user, only: [:edit, :update, :show, :match]
 
   def index
   end
@@ -37,12 +37,6 @@ class UsersController < ApplicationController
     if current_user.address.blank?
       redirect_to root_path, alert: "Please enter a location to continue"
     end
-  end
-
-  def destroy
-    @hobby = Hobby.find(params[:hobby_id])
-    @hobby.destroy
-    redirect_to user_path(current_user, hobby_id: hobby.id), notice: "Your hobby was removed"
   end
 
   def next_match

@@ -14,10 +14,9 @@ class UserHobbiesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
     @userhobby = UserHobby.find(params[:id])
     @userhobby.destroy
-    redirect_to user_path(@user)
-    authorize(@user)
+    redirect_to user_path(current_user, hobby_id: @userhobby.hobby.id), notice: "Your hobby was removed"
+    authorize(@userhobby)
   end
 end
