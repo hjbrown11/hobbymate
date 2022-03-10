@@ -30,6 +30,7 @@ h1 {
   flex-direction: column;
   height: 50%;
   padding-top: 15px;
+  position: relative;
 }
 
 .card-description {
@@ -57,7 +58,7 @@ h1 {
   padding-top: 10px;
   transition: 0.3s;
   width: 94%;
-  height: 550px;
+  height: 84vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
