@@ -50,10 +50,16 @@
     flex-direction: row;
     justify-content: space-between;
     background-image: linear-gradient(to top, #f5a65c, #f5ae5c);
+    position: relative;
+    z-index: 1;
 }
 
 .message-login img {
   width: 30px;
   height: 30px;
   display: inline;
+}
+
+.navbar-main {
+  margin: 0px;
 }
