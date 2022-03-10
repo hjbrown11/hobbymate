@@ -13,14 +13,14 @@
 
 .message-text {
   vertical-align: middle;
-  color: white;
+  color: #e17200;
   padding-top: 5px;
   margin-top: 2px;
   margin: 0;
 }
 
 .message-sender-data, #message_content::placeholder, .new-message-submit {
-  color: white;
+  color: #e17200;
 }
 
 .message-sender-data i {
@@ -30,7 +30,7 @@
 .messages {
   height: 57vh;
   overflow: scroll;
-  background-color: #f55c5d80;
+  background-color: #f5ad5c96;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -38,25 +38,25 @@
 }
 
 .received-message {
-  background-color: #f1bfd38e;
+  background-color: rgba(243, 237, 232, 0.75);
   border-radius: 1rem;
   position: relative;
   align-self: flex-start;
   margin-bottom: 10px;
   padding: 10px;
   text-align: left;
-  border: 2px solid #f1bfd3;
+  border: 2px solid #fcaf70;
   border-radius: 10px;
 }
 
 .sent-message {
-  background-color: rgba(255, 146, 146, 0.8);
+  background-color: rgba(243, 237, 232, 0.75);
   position: relative;
   margin-bottom: 10px;
   align-self: flex-end;
   padding: 10px;
   text-align: left;
-  border: 2px solid #fa7b7b;
+  border: 2px solid #fcaf70;
   border-radius: 10px;
 }
 
@@ -65,7 +65,7 @@ width: 335px;
 height: 75px;
 border-radius: .5rem;
 margin-right: 2px;
-background-color: rgba(255, 255, 255, 0.411);
+background-color: rgba(243, 237, 232, 0.75);
 border: none;
 padding: 25px 100px 20px 20px;
 }
