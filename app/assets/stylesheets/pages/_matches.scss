@@ -4,7 +4,7 @@
   font-size: 1.5vmax;
   border-radius: 50rem;
   padding: 1rem 2rem 1rem 65px;
-  background-color: rgba(255, 255, 255, .95);
+  background-color: rgba(255, 255, 255, .85);
   color: #F96461;
   width: 87vw;
   font-size: 18px;
@@ -13,11 +13,11 @@
 .match-page {
   height: 45vh;
   overflow: scroll;
-  background-color: #fc529673;
+  background-color: #fccc5273;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: .75em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
