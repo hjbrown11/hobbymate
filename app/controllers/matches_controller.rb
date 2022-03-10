@@ -31,9 +31,9 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     @match.sender_id = current_user.id
+    authorize(@match)
     @match.save
     redirect_to new_match_path(status: @match.status, old_match_id: @match.id)
-    authorize(@match)
   end
 
   def update
