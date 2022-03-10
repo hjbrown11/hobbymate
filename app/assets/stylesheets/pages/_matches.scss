@@ -16,9 +16,11 @@
   background-color: #fccc5273;
   border-radius: 1rem;
   display: flex;
+  width: 90%;
   flex-direction: column;
   padding: .75em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  margin: 0 auto;
 }
 
 .match-chat {
