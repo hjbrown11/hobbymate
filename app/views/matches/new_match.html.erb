@@ -6,13 +6,16 @@
           <div class="user-card" data-swipe-target="card">
             <div class="user-card-image" style="background-image: url(<%= cl_image_path(@user.photo.key) %>)"></div>
               <div class="card-name">
-                <h2 class="m-0"><%= @user.first_name %>, <%= @user.age %></h2>
-                <div class="tags-hobby scolled">
-                  <% @user_hobby.each do |user_hobby| %>
-                    <div class="tag-hobby"><p> <%=user_hobby.hobby.name%></p></div>
-                  <% end %>
+                <div>
+                  <h2 class="m-0"><%= @user.first_name %>, <%= @user.age %></h2>
+                  <div class="tags-hobby scolled">
+                    <% @user_hobby.each do |user_hobby| %>
+                      <div class="tag-hobby"><p> <%=user_hobby.hobby.name%></p></div>
+                    <% end %>
+                  </div>
+                  <p class="swipe-text scolled"><%= @user.bio %></p>
+
                 </div>
-                <p class="swipe-text scolled"><%= @user.bio %></p>
                 <div class="buttons-swipe">
                   <% if @match.status == "pending"%>
                     <%= simple_form_for @match do |f|  %>
@@ -41,7 +44,6 @@
           </div>
         </div>
       </div>
-
   <% if params[:status] == "accepted" %>
     <div class="modal p-0" id="match_modal" data-controller="match-modal" tabindex="-1" >
       <div class="modal-dialog modal-dialog-centered">
@@ -50,11 +52,11 @@
             <h2 class="modal-title"> It's a Match! </h2>
           </div>
           <div class="modal-body">
-            <h5 id="modal-h2">You matched with <%= @old_match.receiver.first_name %> <%= @old_match.receiver.last_name %></h5>
+            <h5 id="modal-h2">You matched with <%= @old_match.sender.first_name %> <%= @old_match.sender.last_name %></h5>
             <div class="modal-match-body d-flex justify-content-around align-items-center">
               <div class="modal-image" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
               <i class="fas fa-star" id="modal-star"></i>
-              <div class="modal-image" style="background-image: url('<%= cl_image_path @old_match.receiver.photo.key %>')"></div>
+              <div class="modal-image" style="background-image: url('<%= cl_image_path @old_match.sender.photo.key %>')"></div>
             </div>
           </div>
           <div class="modal-footer pt-0 pb-3">
