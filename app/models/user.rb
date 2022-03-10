@@ -17,12 +17,24 @@ class User < ApplicationRecord
 
   def next_match_user
     # Missing check if I already sent a match
-    User.joins(:user_hobbies).joins("LEFT JOIN matches ON users.id = matches.sender_id OR users.id = matches.receiver_id")
-        .where.not(id: self.id)
-        .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
-        .where.not(matches: { id: self.sent_matches.pluck(:id) })
-        .where.not(matches: { id: self.received_matches.where.not("status = 0").pluck(:id) })
+    users_with_same_hobbies = User.joins(:user_hobbies).where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
+
+    users_already_sent_a_match = sent_matches.pluck(:receiver_id)
+
+    users_already_received_a_match = received_matches.where(status: [:accepted, :rejected]).pluck(:sender_id)
+
+    User.where.not(id: id)
+        .where(id: users_with_same_hobbies.pluck(:id))
+        .where.not(id: users_already_sent_a_match)
+        .where.not(id: users_already_received_a_match)
         .first
+
+    #User.joins(:user_hobbies).joins("LEFT JOIN matches ON users.id = matches.sender_id OR users.id = matches.receiver_id")
+    #    .where.not(id: self.id)
+    #    .where("user_hobbies.hobby_id IN (?)", self.hobby_ids)
+    #    .where.not(matches: { id: self.sent_matches.pluck(:id) })
+    #    .where.not(matches: { id: self.received_matches.where.not("status = 0").pluck(:id) })
+    #    .first
   end
 
   def new_accepted_matches
