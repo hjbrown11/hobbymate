@@ -3,7 +3,13 @@ class MatchesController < ApplicationController
   before_action :my_matches, only: :index
 
   def index
-    @markers = @my_matches.map do |match|
+    @accepted_matches = []
+    my_matches.each do |match|
+      unless match.nil?
+        @accepted_matches << match
+      end
+    end
+    @markers = @accepted_matches.map do |match|
       if match.present?
         {
           lat: match.latitude,
@@ -83,5 +89,6 @@ class MatchesController < ApplicationController
         User.find(user)
       end
     end
+
   end
 end
