@@ -4,20 +4,21 @@
   font-size: 1.5vmax;
   border-radius: 50rem;
   padding: 1rem 2rem 1rem 65px;
-  background-color: rgba(255, 0, 0, 0.4);
+  background-color: #f1bfd373;
   color: #ffffff;
-  width: 87vw;
+  width: 80vw;
   font-size: 18px;
 }
 
 .match-page {
-  height: 48vh;
+  height: 45vh;
   overflow: scroll;
-  background-color: rgba(255, 0, 0, 0.364);
+  background-color: #fc529673;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   padding: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .match-chat {

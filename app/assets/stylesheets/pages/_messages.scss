@@ -25,7 +25,7 @@
 .messages {
   height: 65vh;
   overflow: scroll;
-  background-color: rgba(255, 0, 0, 0.364);
+  background-color: #fc529673;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -33,14 +33,14 @@
 }
 
 .received-message {
-  background-color: rgba(255, 203, 136, 0.8);
+  background-color: #f1bfd38e;
   border-radius: 1rem;
   position: relative;
   align-self: flex-start;
   margin-bottom: 10px;
   padding: 10px;
   text-align: left;
-  border: 2px solid #FFCB88;
+  border: 2px solid #f1bfd3;
   border-radius: 10px;
 }
 
