@@ -31,7 +31,9 @@
             </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-item" %>
+            <%= link_to new_user_session_path, class: "nav-link message-login" do %>
+              <%= image_tag "profile.png" %>
+            <% end %>
           </li>
         <% end %>
       </ul>

@@ -1,3 +1,20 @@
 .form-inputs, .form-actions {
   color: white;
 }
+
+.form-actions .btn {
+  border-radius: 5rem;
+  color: white;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.4);
+  font-size: 16px;
+  padding: 0.2rem 3rem;
+  border: none;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.form-text {
+ color: #ffffff8c;
+}
