@@ -23,7 +23,6 @@ class User < ApplicationRecord
         .where.not(matches: { id: self.sent_matches.pluck(:id) })
         .where.not(matches: { id: self.received_matches.where.not("status = 0").pluck(:id) })
         .first
-
   end
 
   def new_accepted_matches
