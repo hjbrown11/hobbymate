@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:destroy, :edit, :update, :show, :match]
+  before_action :set_user, only: [:edit, :update, :show, :match]
 
   def index
   end
@@ -13,14 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    current_user.hobbies << Hobby.find(params[:hobby_id]) if params[:hobby_id].present? && !current_user.hobbies.include?(Hobby.find(params[:hobby_id]))
-    @hobbies = current_user.hobbies
-    user_hobbies = UserHobby.where("user_id = #{current_user.id}")
-    @hobbies = []
-    user_hobbies.each do |hobby|
-      @hobbies << {name: hobby.hobby.name, id: hobby.hobby.id}
-    end
-    @hobbies.uniq!
+    @userhobbies = current_user.user_hobbies
     @categories = Category.all
     if params[:categories]
       ids = params[:categories].keys.select do |id|
@@ -37,12 +30,6 @@ class UsersController < ApplicationController
     if current_user.address.blank?
       redirect_to root_path, alert: "Please enter a location to continue"
     end
-  end
-
-  def destroy
-    @hobby = Hobby.find(params[:hobby_id])
-    @hobby.destroy
-    redirect_to user_path(current_user, hobby_id: hobby.id), notice: "Your hobby was removed"
   end
 
   def next_match
