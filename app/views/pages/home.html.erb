@@ -12,16 +12,16 @@
       </div>
       <p class="form-subtitle">Select categories you're interested in</p>
       <div class="container">
-          <% @categories.each_slice(2) do |category_pair| %>
+           <%# @categories.each_slice(2) do |category_pair| %>
             <div class="row shifted-row">
-              <% category_pair.each do |category| %>
-                <div class="col-6">
+              <% @categories.each do |category| %>
+                <div class="col-6 col-sm-4 col-lg-3">
                   <%= f.check_box "categories[#{category.id}]", :class => "tag-selector" %>
                   <%= f.label "categories[#{category.id}]", category.name %>
                 </div>
               <% end %>
             </div>
-          <% end %>
+          <%# end %>
       <div class="tag-item-inputs">
           <%= f.submit 'Next', :class => "searchbar-submit" %>
         <% end %>
