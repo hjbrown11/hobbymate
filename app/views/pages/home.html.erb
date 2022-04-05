@@ -5,7 +5,7 @@
       <p class="homepage-tagline">find new hobbies and people to do them with in your area</p>
     </div>
     <%= form_with url: categories_path, method: :get do |f| %>
-      <div data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+      <div class ="homepage-adress" data-controller="geocoder" data-geocoder-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
         <%= f.text_field :address,
                           data: { geocoder_target: "address" },
                           :class => "searchbar-homepage d-none"%>

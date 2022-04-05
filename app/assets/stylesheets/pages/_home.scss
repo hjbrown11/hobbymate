@@ -11,6 +11,7 @@
   margin-top: 20%;
 }
 
+
 .homepage-title {
   font-size: 5vmax;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
@@ -26,6 +27,28 @@
   text-align: center;
 }
 
+.homepage-adress {
+  width: 100%;
+  margin: auto;
+}
+@media (min-width: 600px) {
+  .homepage-tagline {
+    margin-top: 10%;
+  }
+
+  #homepage-block {
+    margin: 5% 10%;
+  }
+  .homepage-adress{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    margin-top: 5%;
+  }
+}
 #address {
   color: rgb(255, 255, 255);
   text-align: center;
