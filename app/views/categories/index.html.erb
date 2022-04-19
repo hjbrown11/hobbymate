@@ -4,15 +4,15 @@
       <%= form_with url: create_many_user_hobbies_path, method: :POST do |f| %>
         <% @categories.each do |category| %>
             <div class="cards-category">
-              <h1 class=><%= category.name %></h1>
+              <h1 class="text-center pt-3"><%= category.name %></h1>
                 <div class="category-hobbies">
                   <div id="category-carousel-<%= category.id %>" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <% category.hobbies.each_slice(2).with_index do |hobby_pair, index| %>
                         <div class="carousel-item <%= "active" if index == 0  %>">
-                          <div class="row">
+                          <div class="d-flex flex-row justify-content-center">
                             <% hobby_pair.each do |hobby|  %>
-                              <div class="col-6">
+                              <div class="px-3">
                                 <%= render "hobby_card", hobby: hobby, f: f %>
                               </div>
                             <% end  %>

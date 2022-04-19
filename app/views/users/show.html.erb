@@ -7,8 +7,8 @@
         <% else%>
           <div class="profile-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')"></div>
         <% end%>
-        <div class="d-flex flex-wrap justify-content-around align-items-center mt-2">
-          <h1><%= @user.first_name %>'s Profile Page</h1>
+        <div class="d-flex flex-wrap justify-content-center align-items-center mt-2">
+          <h1 class="px-2"><%= @user.first_name %>'s Profile Page</h1>
           <%= link_to edit_user_path(@user) do %>
           <i class="fas fa-edit" style="color:white"></i>
           <% end %>
