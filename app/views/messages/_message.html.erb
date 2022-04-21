@@ -1,9 +1,11 @@
-<div class="<%= local_assigns[:css_class] %> card my-3 p-3 w-50" id="message-<%= message.id %>" data-sender-id="<%= message.user.id %>">
-  <%= cl_image_tag image.key, class: "avatar-message-sent" %>
-  <small class="message-sender-data">
-    <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
-    <br>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
+<div class="<%= local_assigns[:css_class] %> card my-3 p-2 w-50" id="message-<%= message.id %>" data-sender-id="<%= message.user.id %>">
+  <div class = "message-info">
+    <%= cl_image_tag image.key, class: "avatar-message-sent" %>
+    <small class="message-sender-data">
+      <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
+      <br>
+      <i><%= message.created_at.strftime("%b %e at %l:%M %p") %></i>
+    </small>
+  </div>
   <p class="message-text"><%= message.content %></p>
 </div>
