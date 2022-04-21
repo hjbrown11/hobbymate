@@ -6,17 +6,18 @@
   padding: 1rem 2rem 1rem 65px;
   background-color: rgba(255, 255, 255, .85);
   color: #F96461;
-  width: 87vw;
+  width: 85vw;
   font-size: 18px;
 }
 
 .match-page {
-  height: 45vh;
-  overflow: scroll;
+  height: 48vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   background-color: #fccc5273;
   border-radius: 1rem;
   display: flex;
-  width: 90%;
+  width: 90vw;
   flex-direction: column;
   padding: .75em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -28,7 +29,6 @@
   align-self: center;
   position: relative;
   align-content: center;
-  width: 100%;
 }
 
 .match-avatar{
