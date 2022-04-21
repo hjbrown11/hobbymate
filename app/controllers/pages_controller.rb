@@ -5,6 +5,7 @@ class PagesController < ApplicationController
       @categories = Category.all
       @user = current_user
     else
+      @categories = Category.all
       if current_user.address.present?
         redirect_to new_match_path
       end
